@@ -1,0 +1,44 @@
+<!--pages/user/returns.wxml-->
+<view class="container">
+    <form bindsubmit="formSubmit">
+    <view class='cells_ctr'>
+        <navigator url="/pages/goods/detail?id={{detail.goods_id}}" class="cells_ctt border0">
+            <view class='goods_pic'><image mode='widthFix' src="{{detail.pic}}"/></view>
+            <view class='goods_rctr'>
+                <view class='goods_txt'>
+                    <view class='goods_title'>{{detail.title}}</view>
+                    <view class='goods_spec'>{{detail.spec_item}}</view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+
+    <view class='cells_ctr'>
+        <view class='cells_txt'>
+            <picker bindchange="typeChange" value="{{type_index}}" range="{{type_array}}">
+                <view class='cell_ctr'>
+                    <view class='cell_left'>{{type_array[type_index]}}</view>
+                    <view class='cell_right'><i class="iconfont icon-you1"></i></view>
+                </view>
+            </picker>
+        </view>
+        <view class='cells_txt border0'>
+            <picker bindchange="reasonChange" value="{{reason_index}}" range="{{reason_array}}">
+                <view class='cell_ctr'>
+                    <view class='cell_left'>{{reason_array[reason_index]}}</view>
+                    <view class='cell_right'><i class="iconfont icon-you1"></i></view>
+                </view>
+            </picker>
+        </view>
+    </view>
+
+    <view class='cells_ctr'>
+        <view class='cells_ctt border0'>
+            <textarea name='m_info' class='m_textarea' placeholder="请详细填写原因~" />
+        </view>
+    </view>
+
+    <button class='submit_btn' formType="submit">提交申请</button>
+    </form>
+
+</view>

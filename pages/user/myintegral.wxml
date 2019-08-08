@@ -1,0 +1,21 @@
+<!--pages/user/myintegral.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="container">
+    <view class='paylog_top'>
+        <view class='paylog_txt'>我的积分</view>
+        <view class='paylog_txt'><span>{{integral}}</span> 分</view>
+    </view>
+    <view class='cells_ctr border0'>
+        <view class='cells_ctt' wx:for="{{dataList}}" wx:key="key">
+            <view class='paylog_t1'>
+                <view class='fl'>{{item.info}}</view>
+                <view class="fr {{item.type==3 ? 'span1' : 'span2'}}">{{item.type==3 ? '+' : '-'}}{{item.fee}}分</view>
+            </view>
+            <view class='paylog_t2'>
+                <view class='fl'>{{item.add_date}}</view>
+                <view class='fr'>成功</view>
+            </view>
+        </view>
+    </view>
+</view>
+

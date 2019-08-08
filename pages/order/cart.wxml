@@ -1,0 +1,96 @@
+<!--pages/order/cart.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="container" style='padding-bottom:100rpx;'>
+  <!-- <view class='cells_ctr'>
+    <view class="cells_ctt {{index+1==cartList.length ? 'border0' : ''}}" wx:for="{{cartList}}" wx:key="key">
+      <view class='cart_radio_ctr'>
+        <view class='cart_radio_ctt'>
+          <radio name='m_cart' checked="{{item.is_select}}" data-index="{{index}}" bindtap='selectItem' />
+        </view>
+      </view>
+      <navigator url="/pages/goods/detail?id={{item.goods_id}}" class='cart_pic'>
+        <image mode='widthFix' src="{{item.pic}}" />
+      </navigator>
+      <view class='cart_right_ctr'>
+        <view class='cart_title'>
+          <view class='cart_goods_title'>{{item.title}}</view>
+          <view class='cart_goods_spec'>{{item.spec_key_name}}</view>
+        </view>
+        <view>
+          <view class='fl'>¥{{item.yprice}}</view>
+          <view class='fr'>
+            <view class='cart_del' data-index="{{index}}" bindtap="delAmount">-</view>
+            <input class='cart_input' data-index="{{index}}" bindinput="bindKeyInput" type="number" value='{{item.amount}}' />
+            <view class='cart_add' data-index="{{index}}" bindtap="addAmount">+</view>
+            <view class='cart_del_btn' data-id="{{item.id}}" bindtap="delCart">
+              <i class="iconfont icon-del"></i>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <view class='goods_wrap'>
+    <block style="position:relative" wx:for="{{cartList}}" wx:key="key">
+      <view class='goods_widget' style='position:relative;'>
+        <movable-area class="delete_widget">
+          <movable-view class='delete_item flex' out-of-bounds="true" direction="horizontal" x="{{item.xmove}}" inertia="true" data-productIndex="{{index}}" bindtouchstart="handleTouchStart" bindtouchend="handleTouchEnd" bindchange="handleMovableChange">
+            <view class='radio_widget'>
+              <radio color='#DC030B' name='m_cart' checked="{{item.is_select}}" data-index="{{index}}" bindtap='selectItem' />
+            </view>
+            <view class='goods_details_wrap flex'>
+              <navigator url="/pages/goods/detail?id={{item.goods_id}}" class='goods_image_widget'>
+                <image mode='widthFix' src="{{item.pic}}" />
+              </navigator>
+              <view class='goods_details'>
+                <view class='goods_title'>{{item.title}}</view>
+                <view class='goods_spec'>{{item.spec_key_name}}</view>
+                <view class='price_num_widget flex'>
+                  <view class='goods_price'>
+                    <text>¥</text>{{item.yprice}}</view>
+                  <view class='goods_num_widget flex'>
+                    <view class='num_del' data-index="{{index}}" bindtap="delAmount">-</view>
+                    <input class='num_input' data-index="{{index}}" bindinput="bindKeyInput" type="number" value='{{item.amount}}' />
+                    <view class='num_add' data-index="{{index}}" bindtap="addAmount">+</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </movable-view>
+        </movable-area>
+        <view class="delete-btn" data-id="{{item.id}}" bindtap="delAddress">
+          <view class='icon_editWidget'>
+            <i data-id="{{item.id}}" bindtap="delCart" class="iconfont icon-del"></i>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class='cart_foot' wx:if="{{cartList.length>0}}">
+    <view class='cart_foot_left'>
+      <view class='fl' bindtap='allSelect'>
+        <radio color='#DC030B' checked="{{allSelect}}" />全选
+      </view>
+      <view class='cart_foot_total'>
+        <view>共计：¥
+          <text style='color:#DC030B;'> {{total}}</text>
+        </view>
+        <view style='color:#777;'>已包邮</view>
+      </view>
+    </view>
+    <view class="cart_foot_right" bindtap="buyNow">下单</view>
+  </view>
+  <!-- 购物车无商品显示 -->
+  <block wx:if="{{cartList.length<1}}">
+    <view class='none_ctr'>
+      <image class="cart-null" src="../../images/cart-null.png" />
+    </view>
+    <view class='none_txt'>空空如也~</view>
+    <view class='none_txt-2'>每天给自己一个惊喜吧~</view>
+    <view class='go-shopping'>
+      <navigator url="../index/index" open-type='switchTab'>去购物</navigator>
+    </view>
+
+  </block>
+</view>

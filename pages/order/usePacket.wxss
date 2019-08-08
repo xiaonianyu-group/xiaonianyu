@@ -1,0 +1,130 @@
+page {
+  border-top: 1rpx solid #eee;
+  background: white;
+}
+
+.packetList-wrap {
+  padding: 20rpx 0rpx;
+}
+
+.packetList-item {
+  height: 200rpx;
+  position: relative;
+  margin-bottom: 20rpx;
+  display: flex;
+  padding: 0 30rpx;
+  color: #DC030B;
+}
+
+.packetList-item image {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: -1;
+}
+
+.packetList-tips {
+  padding: 34rpx 0 122rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #777;
+  text-align: center;
+}
+
+.packetList-itemLeft {
+  width: 198rpx;
+  padding: 58rpx 0;
+  text-align: center;
+  line-height: 50rpx;
+}
+
+.yh_price {
+  font-size: 64rpx;
+  line-height: 78rpx;
+}
+
+.packetList-itemRight {
+  width: 490rpx;
+  padding: 56rpx 0 50rpx 110rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  font-weight: 600;
+}
+
+.packetList-itemRight .small {
+  font-size: 26rpx;
+  opacity: 0.8;
+  font-weight: 400;
+  line-height: 50rpx;
+}
+
+
+.closePacketList {
+  position: fixed;
+  bottom: 0;
+  background-color: #E3353C;
+  width: 100%;
+  color: white;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  padding: 24rpx 0;
+  text-align: center;
+}
+
+.radio_widget {
+  position: absolute;
+  top: 50%;
+  right: 60rpx;
+  transform: translateY(-50%);
+  z-index: 10；
+}
+
+.radio_widget radio {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.packet-num {
+  font-size: 32rpx;
+  color: #DC030B;
+  margin-right: 26rpx;
+}
+
+/*  重写 radio 样式  */
+
+/* 未选中的 背景样式 */
+
+radio .wx-radio-input {
+  border-radius: 50%; /* 圆角 */
+  width: 20rpx;
+  height: 20rpx;
+  border: 6rpx solid #dc030b;
+  opacity: 0.2;
+}
+
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+
+radio .wx-radio-input.wx-radio-input-checked {
+  border: 6rpx solid #dc030b !important;
+  opacity: 1;
+}
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+  border-radius: 50%; /* 圆角 */
+  width: 26rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 26rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 26rpx;
+  text-align: center;
+  font-size: 24rpx; /* 对勾大小 30rpx */
+  color: #fff; /* 对勾颜色 白色 */
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}

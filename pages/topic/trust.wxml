@@ -1,0 +1,5 @@
+<!--pages/topic/trust.wxml-->
+<!-- <view wx:if="{{url == '#'}}">
+
+</view> -->
+<web-view src="{{url}}"></web-view>

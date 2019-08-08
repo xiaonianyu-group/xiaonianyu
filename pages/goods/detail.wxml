@@ -1,0 +1,343 @@
+<!--pages/goods/detail.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<import src="../../utils/wxParse/wxParse.wxml" />
+<view class="container" style='padding-bottom:100rpx;'>
+  <!--幻灯片-->
+  <view class="section swiper">
+    <swiper class="swiper_scroll" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}" wx:key="key">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!--标题 价格-->
+  <view class="m_ctr">
+    <view class='goods_title_top'>
+      <view class="goods_price">
+        <span class="price_logo">¥</span>{{price}}
+      </view>
+      <view class="middle_wrapper">
+        <view class="goods_markey">¥{{detail.markey_price}}</view>
+        <view class="already_sales">{{detail.sales + detail.initial_sales}}件已售</view>
+      </view>
+      <view class="right_wrapper" wx:if="{{e_date}}">
+        <view class="saled_time" wx:if="{{xianShi.countDD > 2 ? false : true}}">
+          距结束
+          <span>{{xianShi.countHH}}</span>
+          :
+          <span>{{xianShi.countMM}}</span>
+          :
+          <span>{{xianShi.countSS}}</span>
+        </view>
+        <view class='cut_down_txt' wx:else>距结束
+          <span>{{xianShi.countDD}}</span>天
+        </view>
+        <!-- <view class='time_cut_down'>
+          <view class='cut_down_txt' wx:if="{{xianShi.countDD > 2 ? false : true}}">
+            距结束
+            <span>{{xianShi.countHH}}</span>
+            :
+            <span>{{xianShi.countMM}}</span>
+            :
+            <span>{{xianShi.countSS}}</span>
+          </view>
+          <view class='cut_down_txt' wx:else>距结束
+            <span>{{xianShi.countDD}}</span>天</view>
+        </view> -->
+      </view>
+    </view>
+    <view class='goods_title_bootom'>
+      <view class="goods_name">{{detail.title}}</view>
+      <view class="goods_share">
+        <button open-type="share" class='shareBtn'>
+          <image bindtap="" class="share_new_img" src="../../images/share_new.png"></image>
+        </button>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="m_ctr">
+        <view class='m_ctt'>
+            <view class='goods_title_left'>
+                <view class="goods_price">¥{{price}} <span>¥{{detail.markey_price}}</span></view>
+                <view class="goods_title">{{detail.title}}</view>
+            </view>
+            <view class='goods_title_right'>
+                <view bindtap="toggleShare"><i class="iconfont icon-fenxiang"></i>分享</view>
+                <view>已售{{detail.sales}}</view>
+            </view>
+            
+            
+            
+        </view>
+    </view> -->
+
+  <view class='fw_ctr bc_white' bindtap="toggleService">
+    <view class='fw_ctt'>
+      <!-- <view class='fw_ico'><image src="../../images/icon_sheng.png"/></view> -->
+      <image class="fw_img-1" src="../../images/icon_sheng.png" />
+      <view class='fw_t1'>全网底价</view>
+      <!-- <view class='fw_t2'>全网底价超省</view> -->
+    </view>
+    <view class='fw_ctt'>
+      <!-- <view class='fw_ico'><image src="../../images/icon_zheng.png"/></view> -->
+      <image class="fw_img-2" src="../../images/icon_zheng.png" />
+      <view class='fw_t1'>品牌授权</view>
+      <!-- <view class='fw_t2'>品牌商家授权</view> -->
+    </view>
+    <view class='fw_ctt'>
+      <!-- <view class='fw_ico'><image src="../../images/icon_kuai.png"/></view> -->
+      <image class="fw_img-3" src="../../images/icon_kuai.png" />
+      <view class='fw_t1'>全场包邮</view>
+      <!-- <view class='fw_t2'>24小时内发货</view> -->
+    </view>
+    <view class='fw_ctt vip_widget'>
+      <!-- <view class='fw_ico'><image src="../../images/icon_bao.png"/></view> -->
+      <image class="fw_img-3" src="../../images/icon_bao.png" />
+      <view class='fw_t1'>买贵包赔</view>
+      <!-- <view class='fw_t2'>品牌护航退换</view> -->
+      <image class='vip_shadow' mode='widthFix' src='../../images/vip.png'></image>
+    </view>
+    <view class='fw_ctt'>
+      <i class="iconfont icon-you1 icon-you1-x"></i>
+    </view>
+    <!-- <view class='goods_cell_right_new'><i class="iconfont icon-you1"></i></view> -->
+  </view>
+
+  <!--优惠券-->
+  <!-- <view class="m_ctr" wx:if="{{couponList.length>0}}">
+    <view class='m_ctt' style='padding:8rpx 20rpx;'>
+      <view class='goods_cell' style='border:0;' bindtap="toggleCoupon">
+        <view class='goods_cell_left'>
+          <view class='goods_coupon_ico'>领券</view>
+          <block wx:for="{{couponList}}" wx:key="key">
+            <view class='goods_coupon_cell' wx:if="{{index<2}}">{{item.title}}</view>
+          </block>
+        </view>
+        <view class='goods_cell_right'>
+          <i class="iconfont icon-you1"></i>
+        </view>
+      </view>
+    </view>
+  </view> -->
+
+  <!--规格 服务条-->
+  <!-- <view class="m_ctr">
+        <view class='m_ctt' style='padding:8rpx 20rpx;'>
+            <view class='goods_cell' bindtap="toggleDialog">
+                <view class='goods_cell_left'>已选择：{{spec_item}} ×{{amount}}</view>
+                <view class='goods_cell_right'><i class="iconfont icon-you1"></i></view>
+            </view>
+        </view>
+    </view> -->
+  <!--用户评论-->
+  <view class="m_ctr" wx:if="{{detail.comment.length>0}}">
+    <view class='m_ctt'>
+      <view class='info_title'>
+        <view class='comment_title_left'>用户评价</view>
+        <navigator class='comment_title_right' url='/pages/goods/comment?gid={{detail.id}}'>查看全部</navigator>
+      </view>
+      <view class="m_ctr">
+        <view class="m_ctr">
+          <view class='comment_pic' wx:if="{{detail.comment[0]['is_http']>0}}">
+            <image src="{{detail.comment[0]['avatar']}}" />
+          </view>
+          <view class='comment_pic' wx:else>
+            <image src="{{rootUrl}}{{detail.comment[0]['avatar']}}" />
+          </view>
+          <view class='comment_name'>{{detail.comment[0]['user']}}</view>
+        </view>
+        <view class='comment_date'>{{detail.comment[0]['add_date']}} {{detail.comment[0]['spec_item']}}</view>
+        <view class="comment_info">{{detail.comment[0]['info']}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 偏远地区不支持发货 -->
+  <view class="pydq">
+    <view class='des' bindtap='regionDes'>
+      <view>偏远地区不支持发货</view>
+      <i class="iconfont icon-you1 {{is_des ? 'icon-you1-x' : ''}}"></i>
+    </view>
+    <view class="pydq-des {{is_des ? 'pydq-des-show' : ''}}">
+      甘肃、宁夏、内蒙古、青海省、新疆、西藏、香港特别行政区、澳门特别行政区、台湾省等暂不支持发货
+    </view>
+  </view>
+
+  <!--商品详情-->
+  <view class="m_ctr">
+    <view class='m_ctt'>
+      <view class='info_title'>商品详情</view>
+      <view class="info_ctr">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+    </view>
+  </view>
+
+
+  <!--底部按钮-->
+  <view class='goods_foot'>
+    <button open-type="contact" show-message-card="ture" class='goods_foot_btn' style='line-height:98rpx;'>
+      <i class="iconfont icon-kefu"></i>
+    </button>
+    <navigator url='/pages/order/cart' open-type='switchTab' class='goods_foot_btn'>
+      <i class="iconfont icon-gouwuche"></i>
+      <view class='cart_yuan' wx:if="{{cartNum>0}}">{{cartNum}}</view>
+    </navigator>
+
+    <view class="goods_foot_buy" bindtap="footBuy">立即购买</view>
+    <view class="goods_foot_cart" bindtap="footCart">加入购物车</view>
+  </view>
+  <!--置顶-->
+  <view class='to_top' hidden="{{hiddenTop}}" bindtap='goTop'>
+    <image src='../../images/icon_fanhuitob.png' />
+  </view>
+</view>
+<!--规格-->
+<view class="dialog {{ showDialog ? 'dialog_show' : '' }}">
+  <view class="dialog_mask" bindtap="toggleDialog" />
+  <view class="dialog_container">
+    <image bindtap="toggleDialog" class="image_close" src="../../images/close.png"></image>
+    <image class="image_sku" src="{{detail.pic}}"></image>
+    <view class='sku_ctr1'>
+      <view class='sku_t1'>价格：¥{{price}}</view>
+      <view class='sku_t2'>库存：{{stock}}</view>
+      <view class='sku_t2'>已选择：{{spec_item}} ×{{amount}}</view>
+    </view>
+    <view class='border-line'></view>
+    <view class='sku_ctr2'>
+      <block wx:if="{{hasSpec}}">
+        <block wx:for="{{spec_list}}" wx:key="key" wx:for-index="spec">
+          <view class='sku_t3'>{{spec}}</view>
+          <view>
+            <block wx:for="{{item}}" wx:key="key">
+              <view wx:if="{{item.item_id==current_spec[spec]}}" class="sku_spec2">{{item.item}}</view>
+              <view wx:else class="sku_spec1" bindtap="selectSpec" data-id="{{item.item_id}}" data-spec="{{spec}}">{{item.item}}</view>
+            </block>
+          </view>
+        </block>
+      </block>
+      <view class='sku_t3'>数量</view>
+      <view>
+        <view class='sku_del' bindtap="delAmount">-</view>
+        <input class='sku_input' bindinput="bindKeyInput" type="number" value='{{amount}}' />
+        <view class='sku_add' bindtap="addAmount">+</view>
+      </view>
+    </view>
+    <view>
+      <view wx:if="{{(detail.is_new_zone==1 && new_user==1) || detail.is_new_zone==0}}">
+        <!-- <view class='sku_cart' bindtap="addCart">加入购物车</view>
+              <view class='sku_buy' bindtap="buyNow">立即购买</view> -->
+        <view class='determine' bindtap="{{determine}}">确定</view>
+      </view>
+      <view wx:else class='sku_none'>新人专享</view>
+    </view>
+  </view>
+</view>
+<!--分享-->
+<view class="dialog {{ showShare ? 'dialog_show' : '' }}">
+  <view class="dialog_mask" bindtap="toggleShare" />
+  <view class="dialog_container">
+    <image bindtap="toggleShare" class="image_close" src="../../images/close.png"></image>
+    <view class='share_ctr'>
+      <view class='share_cell' bindtap='toggleShare'>
+        <button open-type="share" class='btn'>
+          <i class="iconfont icon-weixin1"></i>
+        </button>
+        <view class='share_txt'>分享好友</view>
+      </view>
+      <view class='share_cell' bindtap="getPic1">
+        <view class='btn' style='background: #d6a874;'>
+          <i class="iconfont icon-down"></i>
+        </view>
+        <view class='share_txt'>保存图片</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!--分享图-->
+<view class="dialog {{ showPic ? 'share_pic_ctr' : '' }}">
+  <view class="dialog_mask" />
+  <view class="share_pic_ctt">
+    <image bindtap="getPic" class="image_close" src="../../images/close.png"></image>
+    <view class='share_pic'>
+      <image mode='widthFix' src="{{rootUrl}}{{sharePic}}" />
+    </view>
+    <view class='share_btn' bindtap='savePic'>保存图片</view>
+  </view>
+</view>
+<!--优惠券-->
+<!-- <view class="dialog {{ showCoupon ? 'dialog_show' : '' }}">
+  <view class="dialog_mask" bindtap="toggleCoupon" />
+  <view class="dialog_container">
+    <image bindtap="toggleCoupon" class="image_close" src="../../images/close.png"></image>
+    <view class='goods_coupon_ctr'>
+      <view class='goods_coupon_title'>领取优惠券</view>
+      <view class='goods_coupon_ctt' wx:for="{{couponList}}" wx:key="key">
+        <view class='goods_coupon_price'>
+          <span>¥</span>{{item.yh_price}}</view>
+        <view class='goods_coupon_info'>
+          <view class='goods_coupon_txt'>{{item.title}}</view>
+          <view class='goods_coupon_txt'>{{item.u_bdate}} - {{item.u_edate}}</view>
+        </view>
+        <view class='goods_coupon_btn' wx:if="{{item.has==0}}" bindtap="hitCoupon" data-id="{{item.id}}" data-index="{{index}}">领取</view>
+        <view class='goods_coupon_has' wx:else>已领取</view>
+      </view>
+    </view>
+  </view>
+</view> -->
+
+<!--保障-->
+<view class="dialog {{ showService ? 'dialog_show' : '' }}">
+  <view class="dialog_mask" bindtap="toggleService" />
+  <view class="dialog_container">
+    <image bindtap="toggleService" class="image_close" src="../../images/close.png"></image>
+    <view class='share_ctr1'>
+      <view class='share_title'>商品服务保障</view>
+      <view class='share_cell1'>
+        <!-- <view class='share_txt11'><i class="iconfont icon-gou"></i> 全网底价</view> -->
+        <view class='share_txt11'>
+          <image class="fw_img" src="../../images/icon_sheng.png" />
+          <view class=''>全网底价</view>
+        </view>
+        <view class='share_txt12'>全网底价，优惠购买，超级省钱</view>
+      </view>
+      <view class='empower'>
+        <view style="width:80%;">
+          <view class='share_cell1'>
+            <!-- <view class='share_txt11'><i class="iconfont icon-gou"></i> 品牌授权</view> -->
+            <view class='share_txt11'>
+              <image class="fw_img" src="../../images/icon_zheng.png" />
+              <view class=''>品牌授权</view>
+            </view>
+            <view class='share_txt12'>品牌授权，商家认证，绝对正品</view>
+          </view>
+        </view>
+        <navigator url='authorize?goods_id={{currentID}}' class='empower_detail'>
+          详情
+          <i class="iconfont icon-you1"></i>
+        </navigator>
+      </view>
+
+
+      <view class='share_cell1'>
+        <!-- <view class='share_txt11'><i class="iconfont icon-gou"></i> 顺丰包邮</view> -->
+        <view class='share_txt11'>
+          <image class="fw_img" src="../../images/icon_kuai.png" />
+          <view class=''>全场包邮</view>
+        </view>
+        <view class='share_txt12'>全场包邮，无需承担运费，除了偏远地区不支持发货外</view>
+      </view>
+      <view class='share_cell1'>
+        <!-- <view class='share_txt11'><i class="iconfont icon-gou"></i> 无忧退换</view> -->
+        <view class='share_txt11 vip_widget'>
+          <image class="fw_img" src="../../images/icon_bao.png" />
+          <view class=''>买贵包赔</view>
+          <image class='vip_shadow is' mode='widthFix' src='../../images/vip.png'></image>
+        </view>
+        <view class='share_txt12'>你买贵我包赔,即将开放</view>
+      </view>
+    </view>
+  </view>
+</view>

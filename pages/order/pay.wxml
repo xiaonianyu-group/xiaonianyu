@@ -1,0 +1,25 @@
+<!--pages/order/pay.wxml-->
+<view class="container">
+  <view class='cells_ctr'>
+    <view class='cells_ctt' wx:if="{{order_type==1}}">
+        订单号：{{order_sn}}
+    </view>
+    <view class='cells_ctt border0'>
+        付款额：¥{{pay_total}}
+    </view>
+  </view>
+  <view class='cells_ctr'>
+    <radio-group class="radio-group" bindchange="changePay">
+    <view class="cells_ctt {{ order_type>1 ? 'border0' : '' }}">
+        <radio value="1" checked="ture"/>微信支付
+    </view>
+    <view class='cells_ctt border0' wx:if="{{order_type==1}}">
+        <radio value="3"/>余额支付
+    </view>
+    </radio-group>
+  </view>
+  <view>
+      <view class='submit_btn' style='width:327rpx;background:#aaa;' bindtap="payLater">稍后支付</view>
+      <view class='submit_btn' style='width:327rpx;' bindtap="payNow">确认支付</view>
+  </view>
+</view>

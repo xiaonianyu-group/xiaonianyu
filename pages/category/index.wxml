@@ -1,0 +1,129 @@
+<!--pages/category/index.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+
+<view class="container">
+  <view class='top_ctr'>
+    <!-- <view class='search_ctr' bindtap='toSearch'><i class="iconfont icon-search"></i> 请搜索商品名称</view> -->
+    <scroll-view class='nav_ctr' scroll-x="true" scroll-into-view="n{{currentID}}">
+      <view id="n0" class='nav_cell' bindtap='goCategory' data-id='0'>精选</view>
+      <block wx:for="{{catList}}" wx:key="key">
+        <view id='n{{item.id}}' class="{{ item.id==currentID ? 'nav_cell_on' : 'nav_cell' }}" bindtap='goCategory' data-id='{{item.id}}' data-index="{{index}}">{{item.wap_title}}</view>
+      </block>
+    </scroll-view>
+  </view>
+  <swiper class="swiper-catList" indicator-dots="{{false}}" autoplay="{{false}}" style="height:{{aheight}}px" bindchange="bindchange" current="{{current}}" duration="300" bindtransition="bindtransition">
+    <block wx:for="{{catList}}" wx:key="key">
+      <swiper-item item-id='{{item.id}}' class="swiper-item{{index}}">
+        <scroll-view id="scroll-view-h" scroll-y="true">
+          <view class="swiper box-hight">
+            <image src='{{currentList.pic}}' />
+          </view>
+
+          <scroll-view scroll-y="true" class='fw_ctr bc_white box-hight'>
+            <view class='fw_ctt' wx:for="{{sonList}}" wx:key="key">
+              <navigator url='/pages/goods/list?id={{item.id}}'>
+                <view class='fw_pic'>
+                  <image src='{{item.pic}}' />
+                </view>
+                <view class='fw_t1'>{{item.wap_title}}</view>
+              </navigator>
+            </view>
+          </scroll-view>
+
+          <!--限时抢购-->
+          <view class='pub_ctr box-hight'>
+            <view class='pub_title_ctr' style=''>
+              <view class='pub_main_title'>限时抢购</view>
+              <view class='pub_sub_title'>超低行业底价，我们是认真的</view>
+              <navigator url="/pages/promotion/flashsale?cat_id={{currentID}}&e_date={{e_date}}" class='pub_title_btn'>更多 ></navigator>
+            </view>
+            <view class='time_cut_down'>
+              <view class='cut_down_txt' wx:if="{{xianShi.countDD > 2 ? false : true}}">
+                距结束
+                <span>{{xianShi.countHH}}</span>
+                :
+                <span>{{xianShi.countMM}}</span>
+                :
+                <span>{{xianShi.countSS}}</span>
+              </view>
+              <view class='cut_down_txt' wx:else>距结束
+                <span>{{xianShi.countDD}}</span>天</view>
+            </view>
+            <view class='pub_ctt'>
+              <view wx:for="{{hotGoodsList}}" wx:key="key" class="pub_ctt_goods_box">
+                <navigator url="/pages/goods/detail?id={{item.id}}" class='pub_goods_ctr'>
+                  <view class='pub_goods_pic'>
+                    <!-- <view class='pub_goods_rebate'>{{item.rebate}}折</view> -->
+                    <image class="worth_bug" src="../../images/icon_worthbuy.png" />
+                    <image class="goods_pic" src="{{item.pic}}" />
+                  </view>
+                  <view class='pub_price_ctr' style="text-align: center">
+                    <span class="pub_rmb">¥</span>
+                    {{item.promotion_price}}
+                    <span>¥{{item.markey_price}}</span>
+                  </view>
+                  <view class='pub_goods_title'>{{item.title}}</view>
+                  <view class="process_box">
+                    <view class="process_bg">
+                      <view class="process_checked" style="width:{{item.sale_rate}}%;"></view>
+                    </view>
+                    <view class="process_txt">已售
+                      <span>{{item.sale_rate}}%</span>
+                    </view>
+                  </view>
+                  <view class="bottom_btns">
+                    <view class='pub_mark_btn'>立即抢</view>
+                  </view>
+                </navigator>
+              </view>
+            </view>
+          </view>
+
+          <!--专区-->
+          <view class='topic_title box-hight'>
+            <view class='topic_title_cell_on'>品牌特卖
+              <view class='line'></view>
+            </view>
+          </view>
+          <view class="box-hight">
+            <view wx:for="{{topicList}}" wx:key="key">
+              <navigator url="/pages/topic/detail?id={{item.id}}" class='topic_ctr'>
+                <view class='topic_pic'>
+                  <image src="{{item.pic}}" />
+                </view>
+                <view class='topic_ctt'>
+                  <view class='topic_txt_ctr'>
+                    <view class='topic_txt1'>{{item.title}}</view>
+                    <view class='topic_txt2'>
+                      <view wx:if="{{item.countDD > 2 ? false : true}}">
+                        距结束
+                        <span>{{item.countHH}}</span>
+                        ：
+                        <span>{{item.countMM}}</span>
+                        ：
+                        <span>{{item.countSS}}</span>
+                      </view>
+                      <view wx:else>不足
+                        <text>{{item.countDD}}</text>天</view>
+                    </view>
+                  </view>
+                  <view class='topic_txt3'>
+                    <span>{{item.starting_price}}</span>折起</view>
+                </view>
+              </navigator>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!--底线-->
+  <view class='last_line_ctr'>
+    <view class='last_txt'>这是我的底线</view>
+    <view class='last_line'></view>
+  </view>
+  <!--置顶-->
+  <view class='to_top' hidden="{{hiddenTop}}" bindtap='goTop'>
+    <image src='../../images/icon_fanhuitob.png' />
+  </view>
+</view>

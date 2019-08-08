@@ -1,0 +1,127 @@
+<!--pages/user/myorder.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<!-- 头部 -->
+<view class='tab_ctr'>
+  <view class='tab_ctt'>
+    <view class="{{ order_type=='-1' ? 'tab_cell2' : 'tab_cell1' }}" bindtap="changeOrder" data-type="-1">全部</view>
+    <view class="{{ order_type==0 ? 'tab_cell2' : 'tab_cell1' }}" bindtap="changeOrder" data-type="0">待付款</view>
+    <view class="{{ order_type==1 ? 'tab_cell2' : 'tab_cell1' }}" bindtap="changeOrder" data-type="1">待发货</view>
+    <view class="{{ order_type==2 ? 'tab_cell2' : 'tab_cell1' }}" bindtap="changeOrder" data-type="2">待收货</view>
+    <!-- <view class="{{ order_type==3 ? 'tab_cell2' : 'tab_cell1' }}" bindtap="changeOrder" data-type="3">待评价</view> -->
+  </view>
+</view>
+<view class="container">
+  <!-- 每个订单 -->
+  <view class='order_wrap' wx:for="{{orderList}}" wx:key="key">
+    <!-- 订单上部分 -->
+    <view class='order_top flex'>
+      <!-- 订单号：{{item.order_sn}} -->
+      <view class='XNY_title flex'>
+        <image class='shop_logo' mode='widthFix' src='../../images/logo.png'></image>
+        <text>小年鱼自营商城</text>
+      </view>
+      <view class='order_state flex' wx:if="{{item.order_state == '待付款'}}">
+        {{item.countMM || '30'}} : {{item.countSS || '00'}} 后取消订单 
+        <image style='width:44rpx;height:44rpx;margin-left:4rpx;' mode='widthFix' src='https://img.xiaonianyu.com/1564930138wh.png'></image>
+      </view>
+      <view wx:else class='order_state'>
+        {{item.order_state}}
+      </view>
+    </view>
+    <!-- 订单中间 -->
+    <navigator url='/pages/user/myorderdetail?id={{item.id}}&order_sn={{item.order_sn}}' class='order_middle'>
+      <!-- 仅一个商品订单情况 -->
+      <block wx:for="{{item.goods}}" wx:key="key">
+        <view class="good_widget flex">
+          <view class='goods_pic'>
+            <image mode='widthFix' src="{{item['pic']}}" />
+          </view>
+          <view class='goods_right'>
+            <view class='goods_title'>{{item['title']}}</view>
+            <view class='right_down'>
+              <view class='goods_spec'>{{item['spec_item']}}</view>
+              <view class='goods_price_widget'>
+                <view class='goods_price'>¥{{item['pay_price']}}</view>
+                <view class='goods_num'>×{{item['amount']}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <!-- 统计 -->
+      <view class='flex g_statistic'>
+        <text>合计：￥{{item.price}}</text>
+        <text>共{{item.goods_allNum}}件商品</text>
+      </view>
+      <!-- <view class='myorder_lctr'>
+        仅一个商品订单情况
+        <view wx:if="{{item.goods.length==1}}">
+          <view class='myorder_pic'>
+            <image mode='widthFix' src="{{item.goods[0]['pic']}}" />
+          </view>
+          <view class='myorder_lctt'>
+            <view class='myorder_ltxt'>
+              <view class='myorder_goods_title'>{{item.goods[0]['title']}}</view>
+              <view class='myorder_goods_spec'>{{item.goods[0]['spec_item']}}</view>
+            </view>
+          </view>
+        </view>
+
+        <view wx:else>
+          <block wx:for="{{item.goods}}" wx:key="key">
+            <view class='myorder_pic' wx:if="{{index<3}}">
+              <image mode='widthFix' src="{{item.pic}}" />
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class='myorder_rctr'>
+        <view class='myorder_rctt'>
+          <view>包裹1</view>
+          <view class="{{item.order_state=='交易成功' ? 'span2' : 'span1'}}">{{item.order_state}}</view>
+        </view>
+      </view> -->
+    </navigator>
+    <!-- 订单下部分 -->
+    <view class='orderBtn_wrap'>
+      <block>
+        <view class='myorder_btn' data-id="{{item.id}}">
+          <button open-type="contact" show-message-card="ture" class='xny_kefu'></button>
+          联系客服
+        </view>
+      </block>
+      <block wx:if="{{item.order_state=='已取消'}}">
+        <view class='myorder_btn' bindtap="delOrder" data-id="{{item.id}}">删除订单</view>
+      </block>
+      <block wx:if="{{item.order_state=='待付款'}}">
+        <view class='myorder_btn_on' bindtap="goPay" data-sn="{{item.order_sn}}" data-pay_price='{{item.pay_price}}'>去付款</view>
+        <view class='myorder_btn' bindtap="cancelOrder" data-id="{{item.id}}">取消订单</view>
+      </block>
+      <block wx:if="{{item.order_state=='待发货'}}">
+        <!-- <button open-type="contact" class='myorder_btn'>提醒发货</button> -->
+        <view class='myorder_btn {{item.gray=="已提醒"?"gray":""}}' bindtap='tixingHandle' data-index='{{index}}' data-id="{{item.id}}">{{item.gray == "已提醒"?item.gray:gray}}</view>
+      </block>
+      <block wx:if="{{item.order_state=='已发货'}}">
+        <view class='myorder_btn_on' bindtap="shOrder" data-id="{{item.id}}">确认收货</view>
+        <view class='myorder_btn' wx:if="{{item.send_type=='自提'}}">自提订单</view>
+        <view class='myorder_btn' bindtap="showSend" data-id="{{item.id}}" wx:else>查看物流</view>
+      </block>
+      <block wx:if="{{item.order_state=='交易成功'}}">
+        <view class='myorder_btn_on' bindtap="goComment" data-id="{{item.id}}">{{ item.is_comment=='0' ? '去评论' : '已评论' }}</view>
+        <view class='myorder_btn' wx:if="{{item.send_type=='自提'}}">自提订单</view>
+        <view class='myorder_btn' bindtap="showSend" data-id="{{item.id}}" wx:else>查看物流</view>
+      </block>
+    </view>
+  </view>
+  <!-- 无订单显示 -->
+  <block wx:if="{{orderList.length<1}}">
+    <view class='none_ctr'>
+      <image class="cart-null" src="../../images/order-null.png" />
+    </view>
+    <view class='none_txt'>暂无订单~</view>
+    <view class='none_txt-2'>请您先去选购心仪的商品吧~</view>
+    <view class='go-shopping'>
+      <navigator url="/pages/index/index" open-type="switchTab">去购物</navigator>
+    </view>
+  </block>
+</view>

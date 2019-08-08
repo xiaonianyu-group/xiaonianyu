@@ -1,0 +1,39 @@
+<!--pages/user/myaddress.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="container">
+  <view class='addr_wrap' wx:if='{{dateList.length>0}}'>
+    <view class='addr_widget' wx:for="{{dateList}}" wx:key="key">
+      <movable-area class="delete_widget">
+        <movable-view class='delete_item' out-of-bounds="true" direction="horizontal" x="{{item.xmove}}" inertia="true" data-productIndex="{{index}}" bindtouchstart="handleTouchStart" bindtouchend="handleTouchEnd" bindchange="handleMovableChange">
+          <view class='addr_ctr'>
+            <view class='addr_left' bindtap='changeAddress' data-id='{{item.id}}' data-key='{{index}}'>
+              <view class='addr_name'>{{item.name}} {{item.tel}}</view>
+              <view class='default_ico' wx:if="{{item.is_default}}">默认</view>
+              <view class='addr_link'>{{item.province}}{{item.city}}{{item.county}}{{item.address}}</view>
+            </view>
+            <navigator url='/pages/user/editaddress?id={{item.id}}' class='addr_edit'>
+              <i class="iconfont icon-edit"></i>
+            </navigator>
+          </view>
+        </movable-view>
+      </movable-area>
+      <view class="delete-btn" data-id="{{item.id}}" bindtap="delAddress">
+        <view class='icon_editWidget'>
+          <i class="iconfont icon-del"></i>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- <block wx:if="{{dateList.length<1}}">
+        <view class='none_ctr'><i class="iconfont icon-none"></i></view>
+        <view class='none_txt'>暂无收货地址~</view>
+    </block> -->
+  <view class='addr_foot'>
+    <navigator url='/pages/user/addaddress' class='addr_add_btn'>
+      <view class='round'>+</view>
+      <view class='addr_add'>新增地址</view>
+      <i class='iconfont icon-you1'></i>
+    </navigator>
+  </view>
+</view>

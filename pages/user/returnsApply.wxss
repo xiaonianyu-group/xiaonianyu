@@ -1,0 +1,201 @@
+/* pages/user/returnsApply.wxss */
+
+.flex {
+  display: flex;
+}
+
+.red {
+  color: #DC030B;
+}
+
+/* .red_bg::before {
+  background-color: #DC030B !important;
+} */
+
+.falseHide::before {
+  display: none;
+}
+
+.top_ctr {
+  border-top: 2rpx solid #eee;
+  padding: 14rpx 36rpx;
+  background-color: #fff;
+  font-size: 26rpx;
+  line-height: 36rpx;
+  color: #ccc;
+}
+
+.top_ctt {
+  width: 33.33%;
+  text-align: center;
+}
+
+.top_icon {
+  width: 48rpx;
+  height: 48rpx;
+  position: relative;
+  border: 1rpx solid transparent;
+  overflow: visible;
+}
+
+.top_icon::before {
+  content: '';
+  width: 158rpx;
+  height: 2rpx;
+  background-color: #ccc;
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 12rpx);
+  transform: translateY(-50%);
+}
+
+.tip_sect_apply {
+  background-color: #fff;
+  font-size: 28rpx;
+  color: #000;
+  text-align: center;
+  line-height: 40rpx;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #eee;
+}
+
+/* 用户地址部分 */
+
+.u_addr_sect {
+  padding: 26rpx 30rpx;
+  background-color: #fff;
+  justify-content: space-between;
+  font-size: 30rpx;
+  color: #333;
+  line-height: 44rpx;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.u_addr_wrap {
+  align-items: center;
+}
+
+.u_addr_icon {
+  width: 34rpx;
+  margin-right: 38rpx;
+}
+
+.u_addr_widget {
+  width: 550rpx;
+  word-wrap: break-word;
+}
+
+.copyBtn {
+  color: #777;
+}
+
+/* 商品详情部分 */
+
+.g_detail_sect {
+  padding: 40rpx 30rpx;
+  justify-content: space-between;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.g_image_widget {
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 40rpx;
+}
+
+.g_detail_wrap {
+  width: 500rpx;
+}
+
+.detail_top, .detail_down {
+  justify-content: space-between;
+  height: 50%;
+}
+
+.g_name, .XNY_service {
+  font-size: 26rpx;
+  line-height: 36rpx;
+  color: #333;
+  max-height: 72rpx;
+  overflow: hidden;
+}
+
+.g_right, .g_norms {
+  font-size: 22rpx;
+  line-height: 32rpx;
+  color: #777;
+}
+
+.g_price {
+  color: #dc030b;
+}
+
+.detail_down {
+  align-items: center;
+}
+
+.XNY_service {
+  border: 1rpx solid #ccc;
+  border-radius: 4rpx;
+  padding: 12rpx 54rpx;
+}
+
+/* 订单信息部分 */
+.order_info_sect {
+  padding: 30rpx;
+  background-color: white;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #333;
+}
+
+.info_content_wrap {
+  margin-top: 24rpx;
+}
+
+.info_content_widget {
+  font-size: 28rpx;
+  line-height: 48rpx;
+  color: #777;
+  width: 470rpx;
+}
+
+.info_item {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+}
+
+.info_content_wrap {
+  position: relative;
+}
+
+.info_content_wrap .copyBtn {
+  position: absolute;
+  top: 0;
+  right: 138rpx;
+}
+
+/* 脚部 */
+.no_reture {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 14rpx 30rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.no_retureBtn {
+  float: right;
+  display: inline-block;
+  border: 2rpx solid #ccc;
+  border-radius: 4rpx;
+  padding: 12rpx 40rpx;
+  font-size: 26rpx;
+  line-height: 36rpx;
+  color: #333;
+}

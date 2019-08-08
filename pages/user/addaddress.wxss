@@ -1,0 +1,50 @@
+/* pages/user/addaddress.wxss */
+@import "/style/cells.wxss";
+
+.submit_btn {
+  background: #DC030B;
+  border-radius: 6rpx;
+  margin: 10rpx 24rpx;
+  margin-top: 44rpx;
+  opacity: 0.8;
+}
+
+.wx_submit {
+  background: #fff;
+  color: #DC030B;
+  margin: 10rpx 24rpx;
+}
+
+/* y 新增选择省市区样式 */
+
+.from_item {
+  display: flex;
+}
+
+.item_name {
+  width: 22%;
+  color: #333;
+}
+
+.item_txt {
+  width: 75%;
+  color: #333;
+}
+
+.item_txt.iscolor {
+  color: #777;
+}
+
+.chooseAddr {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon-you1{
+ color: #999;
+}
+
+.icon-weixin {
+  margin-right: 18rpx;
+  font-size: 48rpx;
+}

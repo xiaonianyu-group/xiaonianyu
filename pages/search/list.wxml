@@ -1,0 +1,39 @@
+<!--pages/search/list.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="container">
+    <view class='top_navctr'>
+        <view class="{{curType==0 ? 'top_nav1' : 'top_nav'}}" bindtap='screenGoods' data-type='0'>综合</view>
+        <view class="{{curType==1 ? 'top_nav1' : 'top_nav'}}" bindtap='screenGoods' data-type='1'>价格</view>
+        <view class="{{curType==2 ? 'top_nav1' : 'top_nav'}}" bindtap='screenGoods' data-type='2'>销量</view>
+    </view>
+    <view class='goods_list_ctr' style="padding-top:80rpx">
+        <scroll-view scroll-y="true" style="height:{{scrollHeight}}px;" bindscrolltolower="showScrollLower" scroll-top='{{topNum}}' bindscroll="scrolltoupper">
+            <view wx:for="{{goodsList}}" wx:key="key">
+              <navigator url="/pages/goods/detail?id={{item.id}}" class='goods_list_cell'>
+                  <view class='goods_top_mark' wx:if="{{item.is_promotion>0}}">限时</view>
+                  <image mode='widthFix' src="{{item.pic}}"/>
+                  <view class='goods_list_ctt'>
+                    <view class='goods_list_mark'>{{item.is_top==1 ? '精选' : '折后价'}}</view>
+                    <view class="goods_list_t2">
+                        <view class="fl">¥{{item.price}}<span class="span">¥{{item.markey_price}}</span></view>
+                        <view class="fr"><span>{{item.rebate}}折</span></view>
+                    </view>
+                    <view class="goods_list_t1">{{item.title}}</view>
+                    
+                  </view>
+              </navigator>
+            </view>
+            <block wx:if="{{goodsList.length<1}}">
+                <view class='none_ctr'><i class="iconfont icon-none"></i></view>
+                <view class='none_txt'>暂无商品!</view>
+            </block>
+            <!--底线-->
+            <view class='last_line_ctr' wx:if="{{goodsList.length>0}}" hidden="{{!loadingComplete}}">
+                <view class='last_txt'>这是我的底线</view>
+                <view class='last_line'></view>
+            </view>
+            <!--置顶-->
+            <view class='to_top' hidden="{{hiddenTop}}" bindtap='goTop'><image src='../../images/icon_fanhuitob.png' /></view>
+        </scroll-view>
+    </view>
+</view>

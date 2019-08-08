@@ -1,0 +1,146 @@
+<!--pages/order/index.wxml-->
+<view class="container">
+  <form bindsubmit="submitOrder" report-submit='true'>
+    <view wx:if="{{send_index==0}}">
+      <view class='cells_ctr border0' style='margin-bottom: 0;'>
+        <view class='cells_ctt border0' bindtap="goMyAddress">
+          <block wx:if="{{link_name!=''}}">
+            <view class='cell_left'>
+              <view class='top_name'>{{link_name}} {{link_tel}}</view>
+              <view class='top_addr'>{{link_addr}}</view>
+            </view>
+            <view class='cell_right' style='line-height:80rpx;'>
+              <i class="iconfont icon-you1"></i>
+            </view>
+          </block>
+          <block wx:else>
+            <view class='cell_left'>请填写收件地址</view>
+            <view class='cell_right'>
+              <i class="iconfont icon-you1"></i>
+            </view>
+          </block>
+        </view>
+      </view>
+      <!-- <image class='addr_line' src="../../images/line.gif" mode='aspectFill'/> -->
+    </view>
+    <view wx:else>
+      <view class='cells_ctr border0' style='margin-bottom: 0;'>
+        <view class='cells_ctt border0'>
+          <view class='top_name'>自提点：{{pickup_name}} {{pickup_tel}}</view>
+          <view class='top_addr'>{{pickup_addr}}</view>
+        </view>
+      </view>
+      <image class='addr_line' src="../../images/line.gif" mode='aspectFill' />
+    </view>
+    <!--商品-->
+    <view class='cells_ctr goods_wrap'>
+      <view class="cells_ctt good_widget {{index+1==goods.length ? 'border0' : ''}}" wx:for="{{goods}}" wx:key="key">
+        <view class='goods_pic'>
+          <image mode='widthFix' src="{{item.pic}}" />
+        </view>
+        <view class='goods_right'>
+          <view class='goods_title'>{{item.title}}</view>
+          <view class='right_down'>
+            <view class='goods_spec'>{{item.spec_key_name}}</view>
+            <view class='goods_price_widget'>
+              <view class='goods_price'>¥{{item.yprice}}</view>
+              <view class='goods_num'>×{{item.amount}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--快递-->
+    <view class='cells_ctr'>
+      <view class='cells_txt border0 delivery'>
+        <!-- <picker bindchange="sendChange" value="{{send_index}}" range="{{send_array}}">
+          <view class='cell_ctr'>
+            <view class='cell_left'>{{send_array[send_index]}}</view>
+            <view class='cell_right'>
+              <i class="iconfont icon-you1"></i>
+            </view>
+          </view>
+        </picker> -->
+        <text>配送方式</text>
+        <text>全场包邮</text>
+      </view>
+    </view>
+    <!--红包-->
+    <view class='cells_ctr'>
+      <view class='cells_txt delivery'>
+        <text>红包</text>
+        <text wx:if='{{coupon_enable == 0}}'>暂无可用</text>
+        <navigator wx:else url='usePacket?order_price={{order_price}}&packet_index={{packet_index}}'>
+          <view class='flex'>
+            <view wx:if="{{coupon_price}}" class='packet-num'>-￥{{coupon_price}}</view>
+            <view wx:else class='packet-tips'>{{coupon_enable}}个可用</view>
+            <i class="iconfont icon-you1"></i>
+          </view>
+        </navigator>
+      </view>
+    </view>
+
+    <!--优惠券-->
+    <!-- <view class='cells_ctr'>
+      <view class='cells_txt border0'>
+        <picker bindchange="couponChange" value="{{coupon_index}}" range="{{coupon_txtarray}}">
+          <view class='cell_ctr'>
+            <view class='cell_left'>{{coupon_txtarray[coupon_index]}}</view>
+            <view class='cell_right'>
+              <i class="iconfont icon-you1"></i>
+            </view>
+          </view>
+        </picker>
+      </view>
+    </view> -->
+    <!--积分抵扣-->
+    <!-- <view class='cells_ctr' wx:if="{{0}}">
+      <view class='cells_txt border0'>
+        <view class='cell_ctr'>
+          <view class='fl'>可使用500积分抵扣5元!</view>
+          <view class='fr'>
+            <switch checked bindchange="switchChange" />
+          </view>
+        </view>
+      </view>
+    </view> -->
+    <!-- <view class='cells_ctr'>
+      <view class='cells_txt'>
+        <view class='cell_ctr'>
+          <view class='fl'>商品合计</view>
+          <view class='fr'>¥{{order_price}}</view>
+        </view>
+      </view>
+      <view class='cells_txt' wx:if="{{0}}">
+        <view class='cell_ctr'>
+          <view class='fl'>积分兑换</view>
+          <view class='fr'>-¥5</view>
+        </view>
+      </view>
+      <view class='cells_txt' wx:if="{{rebate_price>0}}">
+        <view class='cell_ctr'>
+          <view class='fl'>会员折扣</view>
+          <view class='fr'>-¥{{rebate_price}}</view>
+        </view>
+      </view>
+      <view class='cells_txt border0'>
+        <view class='cell_ctr'>
+          <view class='fl'>运费</view>
+          <view class='fr'>¥{{send_price}}</view>
+        </view>
+      </view>
+    </view> -->
+    <view class='cells_ctr'>
+      <view class='cells_ctt border0'>
+        <textarea name='m_info' class='m_textarea' bindblur="bindTextAreaBlur" placeholder="买家留言~" />
+      </view>
+    </view>
+
+    <view class='foot_ctr'>
+      <view class="foot_left">共计：¥
+        <text class='pay_price'>{{pay_price}}</text> </view>
+        <button hidden='{{loading}}' class='foot_right'>请稍后  …</button>
+      <button  hidden='{{!loading}}' class='foot_right' formType="submit">微信支付</button>
+    </view>
+  </form>
+</view>

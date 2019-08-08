@@ -1,0 +1,53 @@
+
+
+
+/* 大牌专场样式 */
+
+/*顶部标签切换*/
+.dp-top-nav{
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -30rpx;
+}
+.nav-list{
+  width: 690rpx;
+  height: 60rpx;
+  background: #fff;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 28rpx;
+  border-radius: 6rpx;
+}
+.price{
+  display: flex;
+  align-items: center;
+}
+.icon-xiajiantou{
+  color: #999;
+  margin-left: 15rpx;
+  margin-top: 0rpx;
+  display: inline-block;
+  -webkit-transform:rotate(0deg);
+   transform:rotate(0deg);
+  -webkit-transition:-webkit-transform 0.5s linear;
+   transition:transform 0.5s linear;
+}
+.selected{
+  color: #DC030B;
+}
+
+.icon-xiajiantou-x{
+   margin-top: 0rpx;
+  -webkit-transform:rotate(-180deg);
+   transform:rotate(-180deg);
+  -webkit-transition:-webkit-transform 0.5s linear;
+   transition:transform 0.5s linear;
+}
+
+/* 列表样式 */
+
+
+/* end */

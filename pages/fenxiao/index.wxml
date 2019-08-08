@@ -1,0 +1,82 @@
+<!--pages/fenxiao/index.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="container">
+  <!-- <view class='fenxiao_top'>
+    <view class='fenxiao_top_bg'><image mode='widthFix' src="../../images/fx_bg.gif"/></view>
+    <view class='fenxiao_top_img' style="background-image:url('{{userInfo.avatarUrl}}');background-size: 100% 100%;"></view>
+    <view class='fenxiao_top_t1'>{{userInfo.nickName}}</view>
+    <view class='fenxiao_nav_ctr'>
+      <view class='fenxiao_nav_cell'>
+        <view>累积佣金</view>
+        <view>¥{{distribut_money}}</view>
+      </view>
+      <view class='fenxiao_nav_line' />
+      <view class='fenxiao_nav_cell'>
+        <view>我的团队</view>
+        <view>{{team_size}}</view>
+      </view>
+    </view>
+  </view> -->
+  <view class='user_top'>
+    <!-- <view class='user_top_bg'><image mode='widthFix' src="../../images/headbg.jpg"/></view> -->
+    <view class='user_top_img' style="background-image:url('{{userInfo.avatarUrl}}');background-size: 100% 100%;"></view>
+    <view class='user_top_t1'>{{userInfo.nickName}}</view>
+  </view>
+  <view class='fenxiao_nav_sect flex'>
+    <view class='fenxiao_nav_item falseHide'>
+      <view>待结算</view>
+      <view class='item_txt'>¥{{distribut_money}}</view>
+    </view>
+    <view class='fenxiao_nav_item'>
+      <view>可提现</view>
+      <view class='item_txt'>¥{{distribut_enbale_money}}</view>
+    </view>
+    <view class='fenxiao_nav_item'>
+      <view>我的团队</view>
+      <view class='item_txt'>{{team_size}}</view>
+    </view>
+  </view>
+
+  <view class='cells_ctr'>
+    <view class='cells_ctt'>
+      <navigator url='/pages/fenxiao/mycommission' class='cells_txt'>
+        <view class='cells_txt_left'>
+          <i class="iconfont icon-yongjin"></i> 推广佣金</view>
+        <view class='cells_txt_right'>
+          <i class="iconfont icon-you1"></i>
+        </view>
+      </navigator>
+    </view>
+    <view class='cells_ctt border0'>
+      <navigator url='/pages/fenxiao/myteam' class='cells_txt'>
+        <view class='cells_txt_left'>
+          <i class="iconfont icon-fenxiao"></i> 我的团队</view>
+        <view class='cells_txt_right'>
+          <i class="iconfont icon-you1"></i>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view class='cells_ctr'>
+    <view class='cells_ctt border0'>
+      <view class='cells_txt' bindtap='getPic'>
+        <view class='cells_txt_left'>
+          <i class="iconfont icon-xcx"></i> 我的二维码</view>
+        <view class='cells_txt_right'>
+          <i class="iconfont icon-you1"></i>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!--分享图-->
+<view class="dialog {{ showShare ? 'share_pic_ctr' : '' }}">
+  <view class="dialog_mask" />
+  <view class="share_pic_ctt">
+    <image bindtap="getPic" class="image_close" src="../../images/close.png"></image>
+    <view class='share_pic'>
+      <image mode='widthFix' src="{{rootUrl}}{{sharePic}}" />
+    </view>
+    <view class='share_btn' bindtap='savePic'>保存图片</view>
+  </view>
+</view>

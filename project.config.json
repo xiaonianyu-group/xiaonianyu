@@ -1,0 +1,202 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.7.2",
+	"appid": "wx9f9be71165fe140a",
+	"projectname": "xiaonianyu7.22%E5%8F%B711%E7%82%B9",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 21,
+			"list": [
+				{
+					"id": -1,
+					"name": "列表",
+					"pathName": "pages/goods/list",
+					"query": "id=71",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "商品详情",
+					"pathName": "pages/goods/detail",
+					"query": "id=142",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "品牌商品",
+					"pathName": "pages/goods/list",
+					"query": "brand_id=11&id=23",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "退换货",
+					"pathName": "pages/user/returns",
+					"query": "id=67",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "大牌限时折扣",
+					"pathName": "pages/topic/detail",
+					"query": "id=27",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "列表页",
+					"pathName": "pages/category/index",
+					"query": "id=23",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "列表页",
+					"pathName": "pages/goods/detail",
+					"query": "id=750",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "限时抢购-全部",
+					"pathName": "pages/promotion/flashsale",
+					"query": "cat_id=",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "购物车",
+					"pathName": "pages/order/cart",
+					"query": "id=142",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/user/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品详情",
+					"pathName": "pages/fenxiao/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "我的佣金",
+					"pathName": "pages/user/cashSuccess",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "查看物流",
+					"pathName": "pages/user/logistics",
+					"query": "id=313",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "活动页",
+					"pathName": "pages/topic/active",
+					"query": "user_id:16",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "xxx",
+					"pathName": "pages/topic/active",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "xxx",
+					"pathName": "pages/topic/active",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 16,
+					"name": "消息推送回调",
+					"pathName": "pages/user/myorderdetail",
+					"query": "id=119&order_sn=15640572400852&user_id=119",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "活动页绑定父id",
+					"pathName": "pages/index/index",
+					"query": "isActive=true&scene=119",
+					"scene": null
+				},
+				{
+					"id": 18,
+					"name": "我很无语",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 19,
+					"name": "我很无语",
+					"pathName": "pages/topic/active",
+					"query": "gdt_vid=测试广告",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我很无语",
+					"pathName": "pages/order/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "1",
+					"pathName": "pages/topic/detail",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

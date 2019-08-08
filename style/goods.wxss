@@ -1,0 +1,207 @@
+/**goods.wxss**/
+/*热销,列表,活动*/
+.goods_list_ctr {
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+.xny-goods-list{
+  margin-left: -22rpx;
+}
+.goods_list_cell {
+  float: left;
+  margin: 20rpx 0 0 22rpx;
+  width: 334rpx;
+  height: auto;
+  position: relative;
+}
+.goods_list_cell image {
+  width: 100%;
+  /* height: 286rpx; */
+  display:block;
+}
+.image-h{
+  width: 100%;
+  height: 286rpx;
+  display:block;
+}
+.goods_top_mark {
+  position: absolute;
+  line-height: 50rpx;
+  padding: 0 10rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background: #f44;
+  left: 0;
+  top: 0;
+  z-index: 5;
+}
+.goods_list_subtitle {
+  margin-bottom: 10rpx;
+  width: 100%;
+  height: 60rpx;
+  line-height:60rpx;
+  background: #f1ece2;
+  padding: 0 10rpx;
+  box-sizing:border-box; 
+  color: #a38f66;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp:1;
+  -webkit-box-orient:vertical;
+}
+.goods_list_ctt {
+  /* float: left; */
+  width: 100%;
+  padding: 10rpx 14rpx 32rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+.goods_list_mark {
+  float: left;
+  margin-right: 10rpx;
+  padding: 0 10rpx;
+  width: auto;
+  height: 32rpx;
+  line-height: 32rpx;
+  color: #fff;
+  font-size: 20rpx;
+  background: #ff4b4a;
+}
+.goods_list_t1 {
+  /* float: left; */
+  width: 100%;
+  display: -webkit-box;
+  height: 80rpx;
+  line-height: 40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  font-size: 28rpx;
+}
+.goods_list_t2 {
+  /* float: left; */
+  width: 100%;
+  /* height: 60rpx;
+  line-height: 60rpx; */
+  color: #b4282d;
+  font-size: 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.goods_list_t2 .span{
+  color: #ccc;
+}
+.goods_list_t2 .span{
+  text-decoration: line-through;
+}
+.promotion_price{
+  font-size: 24rpx;
+}
+.ys-jdt{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 22rpx;
+  color: #ccc;
+  margin: 14rpx 0;
+}
+.ljqg{
+  width:120rpx;
+  height:40rpx;
+  background: #DC030B;
+  border-radius:6rpx;
+  opacity:0.8014;
+  color: #fff;
+  line-height: 40rpx;
+  text-align: center;
+}
+.ys-text{
+  margin-right: 10rpx;
+}
+
+/* /////// */
+.xl_style_nav {
+  position: fixed;
+  left:0;
+  top:0;
+  background: #fff;
+  z-index: 12;
+  width: 100%;
+} 
+.xl_style {
+  width:100%;
+  padding:0;
+  box-sizing:border-box;
+  font-size:28rpx;
+}
+.xl_style .xny-goods-list{ 
+  margin-left:0;
+  padding: 20rpx;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.xl_style .goods_list_cell{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  float:none;
+  margin:0;
+  position:relative;
+
+}
+.xl_style .image-h{
+  width: 220rpx;
+  height: 220rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:6rpx 8rpx 10rpx 0rpx rgba(238,238,238,1),-6rpx -8rpx 10rpx 0rpx rgba(238,238,238,1);
+  border-radius:6rpx;
+  margin: 0 38rpx 0 10rpx;
+}
+
+
+/*包邮打标*/
+.by_ctr1,.by_ctr2 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 80rpx;
+  height: 80rpx;
+  z-index: 2;
+}
+.by_ctr2 {
+  width: 100rpx;
+  height: 100rpx;
+}
+.by_ctr1 image,.by_ctr2 image {
+  width: 100%;
+}
+
+/* 进度条样式 */
+.progress-bar-bg{
+  position:relative;
+  width:182rpx;
+  height:12rpx;
+  border-radius:6rpx;
+  background:rgba(220,3,11,.1);
+
+}
+.progress-bar{
+  width: 0%;
+  height:12rpx;
+  background:linear-gradient(90deg,rgba(253,199,201,1) 0%,rgba(244,107,112,1) 100%);
+  border-radius:6rpx;
+  opacity:.8;
+}
+/* ******** */
+
+
+
+
+/* 2019-6.26 大牌限时折扣列表样式 */

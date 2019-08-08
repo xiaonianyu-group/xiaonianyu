@@ -1,0 +1,16 @@
+<view class='packetList-wrap'>
+  <view bindtap="{{item.enable?'couponChange':''}}" data-yh_price='{{item.yh_price}}' data-index='{{index}}' class='packetList-item flex' wx:for="{{couponList}}" wx:key='{{index}}'>
+    <view class='packetList-itemLeft'>
+      <text>￥</text>
+      <text class='yh_price'>{{item.yh_price}}</text>
+    </view>
+    <view class='packetList-itemRight'>
+      <view>{{item.title}}</view>
+      <view  wx:if="{{item.countDD != 0}}" class='small'>有效期至{{item.use_e_date}}</view>
+      <view wx:else class='small'>{{item.countHH || '24'}}:{{item.countMM || '00'}}:{{item.countSS || '00'}} 后过期</view>
+    </view>
+    <!-- 背景图选择 -->
+      <image mode='widthFix' src='https://img.xiaonianyu.com/1564832266wa.png'></image>
+  </view>
+  <view class='packetList-tips'>没有更多红包了</view>
+</view>

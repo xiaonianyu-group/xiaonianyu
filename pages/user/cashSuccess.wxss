@@ -1,0 +1,39 @@
+/* pages/user/cashSuccess.wxss */
+
+page {
+  background: #fff;
+}
+
+.main {
+  text-align: center;
+  padding-top: 256rpx;
+}
+
+.success {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.return-Home {
+  width: 260rpx;
+  height: 88rpx;
+  background: rgba(220, 3, 11, 1);
+  border-radius: 6rpx;
+  opacity: 0.8;
+  border: 2rpx solid rgba(220, 3, 11, 1);
+  line-height: 88rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 28rpx;
+  margin: 0 auto;
+}
+
+.ft-40 {
+  font-size: 40rpx;
+  margin: 70rpx auto 20rpx;
+}
+
+.ft-28 {
+  font-size: 28rpx;
+  margin-bottom: 76rpx;
+}

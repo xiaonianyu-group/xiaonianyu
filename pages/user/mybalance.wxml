@@ -1,0 +1,37 @@
+<!--pages/user/mybalance.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="container">
+    <view class='paylog_top'>
+        <view class='paylog_txt'>我的余额</view>
+        <view class='paylog_txt'>¥ <span>{{balance}}</span> 元</view>
+        <view class='paylog_btn' bindtap='recharge'>充值</view>
+    </view>
+    <view class='cells_ctr border0'>
+        <view class='cells_ctt' wx:for="{{dataList}}" wx:key="key">
+            <view class='paylog_t1'>
+                <view class='fl'>{{item.info}}</view>
+                <view class="fr {{item.type==1 ? 'span1' : 'span2'}}">{{item.type==1 ? '+' : '-'}}{{item.fee}}</view>
+            </view>
+            <view class='paylog_t2'>
+                <view class='fl'>{{item.add_date}}</view>
+                <view class='fr'>成功</view>
+            </view>
+        </view>
+    </view>
+</view>
+<!--弹窗-->
+<view class="dialog {{ showPop ? 'pop_ctr' : '' }}">
+    <view class="dialog_mask" />
+    <view class='pop_close' bindtap='recharge'><image mode='widthFix' src="../../images/close.png"/></view>
+    <view class="pop_ctt">
+        <form bindsubmit="formSubmit">
+        <view class='pop_main'>
+            <view class='pop_title'>余额充值</view>
+            <view class='pop_info'>
+                <input name="m_total" value='' placeholder="输入金额"/>
+            </view>
+            <button class='pop_btn' formType="submit">确定</button>
+        </view>
+        </form>
+    </view>
+</view>

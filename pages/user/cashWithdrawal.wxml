@@ -1,0 +1,20 @@
+<!--pages/user/cashWithdrawal.wxml-->
+<view class='container'>
+
+  <view class="main">
+    <view class='title'>提现金额</view>
+    <view class="input-st">
+      <text class="symbol">￥</text>
+      <input class="money" type="digit" value="{{tx_money}}" bindinput="getMoney"></input>
+    </view>
+    <view class='whole'>
+      <text>可提现金额￥</text>
+      <text>{{total}}</text>,
+      <text class='whole-tx' bindtap='fullCashWithdrawal'>全部提现</text>
+    </view>
+    <view bindtap='cashWithdrawal' class="tx-btn-no {{tx_money >= 50 ? 'tx-btn-yes' : ''}}">{{tx_money >= 50 ? '提现':'满50元可提现'}}</view>
+  </view>
+  <view class='topTip'>每日提现上限 <span>500</span>元 </view>
+
+
+</view>

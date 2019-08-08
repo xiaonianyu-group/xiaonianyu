@@ -1,0 +1,90 @@
+<!--pages/goods/detail.wxml-->
+<scroll-view scroll-y="true" style="height:100vh;" bindscrolltolower="showScrollLower" scroll-top='{{topNum}}'>
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
+  <view class="container">
+    <!--头部图片-->
+    <view class="swiper" style='height:{{imgUrls == "" ? "60rpx" :"328rpx"}}'>
+      <image src="{{detail.pic}}" wx:if="{{imgUrls}}" />
+      <view class='topic_title' wx:if="{{imgUrls}}">
+        <view class='topic_t1'>距离结束</view>
+        <view class='topic_t2'>
+          <view class='time' wx:if="{{detail.countDD > 2 ? false : true}}">
+            <view class='bg-k'>{{detail.countHH}}</view>
+            :
+            <view class='bg-k'>{{detail.countMM}}</view>
+            :
+            <view class='bg-k'>{{detail.countSS}}</view>
+          </view>
+          <view class='bg-k' wx:else>{{detail.countDD}}天</view>
+        </view>
+      </view>
+      <!--   -->
+      <view class="{{is_new_r ? 'xl_style_nav' : 'dp-top-nav'}}">
+        <view class="nav-list">
+          <view class="{{currentTabsIndex == 0 ? 'selected' : ''}}" bindtap='tabsWitch' data-type="zh" data-index="{{0}}">综合</view>
+          <view class="{{currentTabsIndex == 1 ? 'selected' : ''}}" bindtap='tabsWitch' data-type="xl" data-index="{{1}}">销量</view>
+          <view class="price {{currentTabsIndex == 2 ? 'selected' : ''}}" bindtap='tabsWitch' data-type="jg" data-index="{{2}}">
+            <view>价格</view>
+            <i class="iconfont icon-xiajiantou {{is_sj ? 'icon-xiajiantou-x' : ''}} {{currentTabsIndex == 2 ? 'selected' : ''}}"></i>
+          </view>
+        </view>
+      </view>
+
+    </view>
+    <!-- xny-goods-list  -->
+    <view class="{{is_new_r ? 'xl_style' : 'goods_list_ctr'}}">
+      <!-- 明哥代码↓ -->
+      <view wx:for="{{goodsList}}" wx:key="key" class='xny-goods-list'>
+        <navigator url="/pages/goods/detail?id={{item.id}}" class='goods_list_cell'>
+          <!-- <view class='goods_top_mark'>限时</view> -->
+          <view class="image-h">
+            <image mode='widthFix' src="{{item.pic}}" />
+          </view>
+          <view class='goods_list_ctt'>
+            <view class="goods_list_t1">{{item.title}}</view>
+            <!-- <view class='goods_list_mark'>{{item.is_top==1 ? '精选' : '折后价'}}</view> -->
+            <view class="ys-jdt">
+              <view class="progress-bar-bg">
+                <view class="progress-bar" style="width: {{item.sale_rate}}%;"></view>
+              </view>
+              <view class=''>
+                <text class='ys-text'>已售</text>
+                <text class="goods_new_t3">{{item.sale_rate}}%</text> </view>
+            </view>
+            <view class="goods_list_t2">
+              <view class="">
+                <view>
+                  <text>￥</text>
+                  <text class='promotion_price'>{{item.promotion_price}}</text>
+                </view>
+
+                <view class="span">¥{{item.markey_price}}</view>
+              </view>
+              <view class="ljqg">立即抢购</view>
+              <!-- <view class="fr"><span>{{item.rebate}}折</span></view> -->
+            </view>
+          </view>
+        </navigator>
+      </view>
+      <!-- 明哥代码↑ -->
+      <block wx:if="{{goodsList.length == 0}}">
+        <view class='none_ctr'>
+          <i class="iconfont icon-none"></i>
+        </view>
+        <view class='none_txt'>暂无商品!</view>
+      </block>
+      <!--底线-->
+      <view class='last_line_ctr'>
+        <view wx:if="{{goodsList.length == allGoods}}">
+          <view class='last_txt'>这是我的底线</view>
+          <view class='last_line'></view>
+        </view>
+        <view wx:else class='loading_box'>拼命加载中…</view>
+      </view>
+      <!--置顶-->
+      <view class='to_top' hidden="{{hiddenTop}}" bindtap='goTop'>
+        <image src='../../images/icon_fanhuitob.png' />
+      </view>
+    </view>
+  </view>
+</scroll-view>

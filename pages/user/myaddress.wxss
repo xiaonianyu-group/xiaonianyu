@@ -1,0 +1,162 @@
+/* pages/user/myaddress.wxss */
+
+.container {
+  padding-bottom: 100rpx;
+  position: relative;
+}
+
+.addr_wrap {
+  margin-bottom: 62rpx;
+}
+
+.addr_ctr {
+  float: left;
+  width: 100vw;
+  padding: 20rpx 0;
+  border-bottom: 2rpx #f2f2f2 solid;
+  background: #fff;
+}
+
+.addr_left {
+  float: left;
+  width: 500rpx;
+  font-size: 32rpx;
+  padding-left: 24rpx;
+}
+
+.addr_name {
+  float: left;
+  padding-right: 20rpx;
+  line-height: 52rpx;
+}
+
+.default_ico {
+  float: left;
+  margin-top: 4rpx;
+  border-radius: 4rpx;
+  font-size: 24rpx;
+  padding: 0 10rpx;
+}
+
+.addr_link {
+  float: left;
+  width: 100%;
+  font-size: 24rpx;
+  color: #888;
+  padding-top: 4rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.addr_edit {
+  float: right;
+  padding-right: 24rpx;
+  padding-top: 10rpx;
+}
+
+.addr_edit i {
+  font-size: 44rpx;
+}
+
+/*底部*/
+
+.addr_foot {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+}
+
+.addr_add_btn {
+  margin: 18rpx;
+  float: left;
+  width: 710rpx;
+  height: 60rpx;
+  font-size: 32rpx;
+}
+
+.addr_foot .addr_add_btn {
+  border: 0;
+  color: #777;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.round {
+  border: 1px solid #dc030b;
+  border-radius: 50%;
+  width: 32rpx;
+  height: 32rpx;
+  color: #dc030b;
+  text-align: center;
+  line-height: 32rpx;
+  font-size: 40rpx;
+}
+
+.addr_add {
+  text-align: left;
+  width: 84%;
+}
+
+.deleteBtn {
+  color: #888;
+  font-size: 32rpx;
+  line-height: 84rpx;
+  margin-left: 58rpx;
+}
+
+/* 新增左滑删除样式 */
+
+.addr_widget {
+  display: flex;
+  position: relative;
+}
+
+.delete_widget {
+  width: calc(100vw - 130rpx);
+  height: 130rpx;
+}
+
+.delete_item {
+  height: 130rpx;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0; 
+  z-index: 999;
+}
+
+.delete-btn {
+  height: 130rpx;
+  width: 130rpx;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0; 
+  font-size: 24rpx;
+  color: #FFFFFF;
+  z-index: 1;
+  text-align: center;
+}
+
+.icon_editWidget {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 62rpx;
+  height: 62rpx;
+  border-radius: 50%;
+  background-color: #DC030B;
+  transform: translate(-50%,-50%);
+  opacity: 0.8;
+}
+
+.icon_editWidget i {
+  line-height: 62rpx;
+  font-size: 36rpx;
+}
+@import "/style/style.wxss";

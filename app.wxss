@@ -1,0 +1,225 @@
+/**app.wxss**/
+@import "style/weui.wxss";
+@import "style/goods.wxss";
+page{
+  background-color:#f6f6f6;
+}
+::-webkit-scrollbar{
+	width:0;
+	height:0;
+	color:transparent;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+  box-sizing: border-box;
+  color: #333333;
+}
+.image { 
+  border: 0;
+  height: 100%;
+}
+
+.bc_white{
+    background-color: #ffffff;
+}
+/*不存在*/
+.none_ctr {
+  margin: 0 auto;
+  padding-top: 100rpx;
+  width: 100%;
+  height: 180rpx;
+  overflow: hidden;
+  text-align: center;
+}
+.none_ctr i {
+  font-size: 140rpx;
+  color: #999;
+}
+.none_txt {
+  margin: 0 auto;
+  width: 100%;
+  height: 200rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+}
+.none_ctr {
+  height: auto;
+}
+.cart-null{
+  width: 420rpx;
+   height: 420rpx;
+}
+.none_txt {
+  height: auto;
+  color: #333;
+  font-size: 40rpx;
+}
+.none_txt-2{
+  color: #777;
+  margin: 22rpx auto 34rpx;
+  font-size: 28rpx;
+}
+.go-shopping{
+  width:160rpx;
+  height:60rpx;
+  background:rgba(220,3,11,1);
+  margin: 0 auto;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #fff;
+  border-radius: 2rpx;
+}
+/*提交按钮*/
+.submit_btn {
+  margin: 24rpx;
+  float: left;
+  width:702rpx;
+  height:92rpx;
+  line-height: 92rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  background: #fe6813;
+  border-radius: 20rpx;
+}
+
+/*客服*/
+.kf_btn {
+  position: fixed;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  right: 20rpx;
+  bottom: 40rpx;
+  z-index: 5;
+  border-radius: 50%;
+}
+.kf_btn i {
+  font-size: 48rpx;
+}
+
+/*置顶*/
+.to_top {
+  position: fixed;
+  right: 20rpx;
+  bottom: 100rpx;
+  z-index: 99;
+}
+.to_top image {
+  width: 66rpx;
+  height: 66rpx;
+}
+
+/*底线*/
+.last_line_ctr {
+  margin: 30rpx 200rpx 20rpx;
+  float: left;
+  width: 350rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 24rpx;
+  position: relative;
+}
+.last_txt {
+  position: absolute;
+  width: 190rpx;
+  height: 30rpx;
+  background: #f6f6f6;
+  color: #999;
+  left: 80rpx;
+  top: 0;
+  z-index: 9;
+  text-align: center;
+}
+.last_line {
+  position: absolute;
+  width: 100%;
+  height: 2rpx;
+  background: #999;
+  left: 0;
+  top: 14rpx;
+  z-index: 2;
+}
+
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.ellipsis{
+  display:-webkit-box;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  -webkit-line-clamp:1;
+  -webkit-box-orient:vertical;
+
+}
+/*ico*/
+@font-face {
+  font-family: 'iconfont';  /* project id 1262984 */
+  src: url('//at.alicdn.com/t/font_1262984_savem349vv.eot');
+  src: url('//at.alicdn.com/t/font_1262984_savem349vv.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1262984_savem349vv.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1262984_savem349vv.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1262984_savem349vv.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1262984_savem349vv.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* .icon-fenlei:before { content: "\e62b"; }
+.icon-kafei:before { content: "\e89c"; } */
+.icon-gouwuche:before { content: "\e600"; }
+/* .icon-geren-copy:before { content: "\e602"; } */
+.icon-kefu:before { content: "\e612"; }
+.icon-fenxiang:before { content: "\e611"; }
+.icon-you1:before { content: "\e60b"; }
+.icon-ask:before { content: "\e614"; }
+.icon-addr:before { content: "\e612"; }
+/* .icon-allorder:before { content: "\e642"; }
+.icon-daifukuan1:before { content: "\e601"; }
+.icon-daifahuo:before { content: "\e683"; }
+.icon-daishouhuo:before { content: "\e701"; } */
+.icon-edit:before { content: "\e643"; }
+.icon-del:before { content: "\e696"; }
+.icon-coupon:before { content: "\e615"; }
+/* .icon-about:before { content: "\e66a"; }
+.icon-cha:before { content: "\e612"; }
+.icon-home:before { content: "\e600"; } */
+.icon-weixin:before { content: "\e60a"; }
+
+.icon-fenxiao:before { content: "\e60f"; }
+/* 个人中心已经注释
+.icon-huancun:before { content: "\e630"; } */
+
+/* 找不到合适图标
+.icon-gou:before { content: "\e6ac"; }
+ */
+
+/* .icon-zan:before { content: "\e681"; } */
+.icon-weixin1:before { content: "\e601"; }
+.icon-down:before { content: "\e60c"; }
+/* 新版已经放弃
+.icon-none:before { content: "\e647"; } */
+/* .icon-balance:before { content: "\e620"; }
+.icon-integral:before { content: "\e755"; } */
+.icon-yongjin:before { content: "\e610"; }
+.icon-xcx:before { content: "\e60e"; }
+/* .icon-nk:before { content: "\e610"; }
+.icon-pintuan:before { content: "\e60d"; } */
+.icon-search:before { content: "\e602"; }
+.icon-xiajiantou:before { content: "\e6b4"; }

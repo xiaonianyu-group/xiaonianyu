@@ -1,0 +1,75 @@
+<!--pages/user/returnsApply.wxml-->
+<view class='container'>
+  <view class='top_ctr flex'>
+    <view class='top_ctt red'>
+      <image class='top_icon falseHide' src='../../images/Order_shenqingtuihuo.png'></image>
+      <view>申请退货</view>
+    </view>
+    <view class='top_ctt'>
+      <image class='top_icon red_bg' mode='widthFix' src='../../images/Order_fahuogeishangjia.png'></image>
+      <view>发货给商家</view>
+    </view>
+    <view class='top_ctt'>
+      <image class='top_icon' mode='widthFix' src='../../images/Order_tuihuochenggou.png'></image>
+      <view>退款成功</view>
+    </view>
+  </view>
+  <view class='tip_sect_apply'>
+    正在申请，请稍后
+  </view>
+  <view class='tip_sect_deliver'>
+    <view>您的申请已通过，请48小时内上传寄回货物</view>
+  </view>
+
+  <view class='u_addr_sect flex'>
+    <view class='u_addr_wrap flex flex'>
+      <image class='u_addr_icon' mode='widthFix' src='../../images/Order_dingwei.png'></image>
+      <view class='u_addr_widget'>
+        <view>
+          <text>{{u_detail.name}}</text>
+          <text>{{u_detail.tel}}</text>
+        </view>
+        <view class='u_addr'>{{u_detail.province}} {{u_detail.city}} {{u_detail.area}} {{u_detail.street}}</view>
+      </view> 
+    </view>
+    <view class='copyBtn'>复制</view>
+  </view>
+  <view class='g_detail_sect flex'>
+    <view class='g_image_widget'>
+      <!-- <image mode='widthFix' src='{{}}'></image> -->
+      <image style='width:100%;' mode='widthFix' src='../../images/Order_shenqingtuihuo.png'></image>
+    </view>
+    <view class='g_detail_wrap'>
+      <view class='detail_top flex'>
+        <view class='g_name'>{{}}商品名称</view>
+        <view class='g_right'>
+          <view class='g_price'>￥{{}}</view>
+          <view class='g_num'>x{{}}</view>
+        </view>
+      </view>
+      <view class='detail_down flex'>
+        <view class='g_norms'>
+          <text>颜色：{{}}</text>
+          <text>尺码:{{}}</text>
+        </view>
+        <view class='XNY_service'>客服</view>
+      </view>
+    </view>
+  </view>
+  <view class='order_info_sect'>
+    <view class='info_title'>订单信息</view>
+    <view class='info_content_wrap flex'>
+      <view class='info_content_widget'>
+        <view class='info_item'>订单编号：{{}}</view>
+        <view class='info_item'>下单时间：{{}}</view>
+        <view class='info_item'>退货发起时间：{{}}</view>
+        <view class='info_item'>退款金额：{{}}</view>
+        <view class='info_item'>备注信息：{{}}</view>
+      </view>
+      <view class='copyBtn'>复制</view>
+    </view>
+  </view>
+  <view class='no_reture'>
+    <view class='no_retureBtn'>不退了</view>
+  </view>
+</view>

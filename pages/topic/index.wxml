@@ -1,0 +1,20 @@
+<!--pages/topic/index.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="container">
+    <view class="topic_list_ctr" wx:for="{{topicList}}" wx:key="key">
+        <navigator url='/pages/topic/detail?id={{item.id}}'>
+            <image mode='widthFix' src="{{item.pic}}"/>
+            <view class="topic_list_ctt">
+                <view class="topic_list_t1">
+                    <view class="topic_list_title">{{item.title}}</view>
+                    <view class="topic_list_price">{{item.starting_price}}起</view>
+                </view>
+                <view class="topic_list_subtitle">{{item.subtitle}}</view>
+            </view>
+        </navigator>
+    </view>
+    <block wx:if="{{topicList.length<1}}">
+        <view class='none_ctr'><i class="iconfont icon-none"></i></view>
+        <view class='none_txt'>还木有活动~</view>
+    </block>
+</view>

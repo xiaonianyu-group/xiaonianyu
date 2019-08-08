@@ -1,0 +1,21 @@
+<!--pages/user/mycomment.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="container">
+    <form bindsubmit="formSubmit">
+    <view class='cells_ctr' wx:for="{{goodsList}}" wx:key="key">
+        <view class='cells_ctt'>
+            <view class='goods_pic'><image mode='widthFix' src="{{item.pic}}"/></view>
+            <view class='goods_ctr'>
+                <view class='goods_txt'>
+                    <view class='goods_title'>{{item.title}}</view>
+                    <view class='goods_spec'>{{item.spec_item}}</view>
+                </view>
+            </view>
+        </view>
+        <view class='cells_ctt border0'>
+            <textarea name='m_info{{item.id}}' value='{{item.comment}}' class='m_textarea' placeholder="亲，您对这个商品满意吗？您的评价会帮助我们选择更好的商品哦~" />
+        </view>
+    </view>
+    <button class='submit_btn' formType="submit" wx:if="{{hiddenLoading && !isComment}}">提交评价</button>
+    </form>
+</view>

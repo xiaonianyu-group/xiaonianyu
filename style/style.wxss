@@ -1,0 +1,112 @@
+/**style.wxss**/
+/*整体风格*/
+/*index*/
+.service_ctr i,.goods_new_t3 {
+  color: #DC030B;
+}
+/*category*/
+/* .category-item.current{
+  border-left:4rpx #DC030B solid;
+} */
+/*goods_detail*/
+.goods_price,.goods_cell_left i,.sku_t1 {
+  color: #DC030B;
+}
+.sku_spec2 {
+  color: #ffffff;
+  border: 1px #DC030B solid;
+}
+.cart_yuan,.goods_foot_buy,.sku_spec2,.sku_buy,.share_btn {
+  background: #DC030B;
+  opacity: 0.8;
+}
+.sku_cart {
+  background: #4ab14f;
+}
+/*goods_list*/
+.top_nav.current {
+  color:#DC030B;
+  border-bottom: 4rpx #DC030B solid;
+}
+/*cart*/
+.cart_foot_total {
+  color: #DC030B;
+}
+.cart_foot_right {
+  background: #DC030B;
+}
+/*order*/
+.foot_left {
+  color: #DC030B;
+}
+.foot_right {
+  background: #DC030B;
+}
+/*topic_list*/
+.topic_list_price {
+  color: #DC030B;
+}
+/*myaddr*/
+.default_ico,.addr_add_btn {
+  border: 2rpx #DC030B solid;
+  color: #DC030B;
+}
+/*mycoupon*/
+.tab_cell_on {
+  color: #DC030B;
+  border-bottom: 6rpx #DC030B solid;
+}
+.coupon_ctt {
+  background: #FF6868;
+}
+.coupon_btn {
+  background: #FFE6E6;
+  color: #FF6868;
+}
+/*myorder*/
+.tab_cell2 {
+  color: #DC030B;
+  border-bottom: 6rpx #DC030B solid;
+}
+.myorder_rctt .span1 {
+  color: #DC030B;
+}
+.myorder_rctt .span2 {
+  color: #48b76a;
+}
+.myorder_btn_on {
+  border:2rpx #DC030B solid;
+  background: #DC030B;
+}
+
+
+
+/* ****顶部导航下拉样式****** */
+.top-nav{
+  position: relative;
+  /* overflow: hidden; */
+  padding: 0 50rpx 0 30rpx;
+}
+.xl-nav{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 68rpx;
+  /* line-height: 68rpx; */
+  width: 50rpx;
+  text-align: center;
+   -webkit-transform:rotate(90deg);
+   transform:rotate(90deg);
+  -webkit-transition:-webkit-transform 0.5s linear;
+   transition:transform 0.5s linear;
+}
+.xl-nav-2{
+  height: 68rpx;
+  /* line-height: 68rpx; */
+  width: 50rpx;
+  text-align: center;
+   -webkit-transform:rotate(-90deg);
+   transform:rotate(-90deg);
+  -webkit-transition:-webkit-transform 0.5s linear;
+   transition:transform 0.5s linear;
+}

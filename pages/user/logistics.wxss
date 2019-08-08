@@ -1,0 +1,109 @@
+.flex {
+  display: flex;
+}
+
+.sect {
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+}
+
+.logistics_title {
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #333;
+  align-items: center;
+}
+
+.imgWidget {
+  width: 72rpx;
+  height: 72rpx;
+  margin-right: 32rpx;
+}
+
+.imgWidget image {
+  width: 100%;
+}
+
+
+.logistics_sn {
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #777;
+  justify-content: space-between;
+}
+
+
+.info_item {
+  align-items: center;
+  font-size: 20rpx;
+  line-height: 30rpx;
+  color: #999;
+  position: relative;
+}
+
+.date_info {
+  width: 110rpx;
+  margin-right: 90rpx;
+  text-align: right;
+}
+
+.day_info {
+  font-size: 26rpx;
+  line-height: 36rpx;
+}
+
+.txt_info {
+  width: 100%;
+  padding: 26rpx 0;
+  font-size: 24rpx;
+  line-height: 34rpx;
+}
+
+.axis_widget {
+  position: absolute;
+  width: 12rpx;
+  height: 100%;
+  left: 120rpx;
+}
+
+.Dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+
+.Dot image {
+  width: 100%;
+}
+
+.line_t,
+.line_d  {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2rpx;
+  height: calc(50% - 8rpx);
+  background-color: #ccc;
+}
+
+.line_t {
+  top: 0%;
+}
+
+.line_d {
+  bottom: 0%;
+}
+
+.status {
+  font-size: 30rpx !important;
+  color: #333;
+  line-height: 48rpx;
+  padding-bottom: 20rpx;
+}

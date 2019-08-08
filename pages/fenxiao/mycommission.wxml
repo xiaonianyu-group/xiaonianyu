@@ -1,0 +1,75 @@
+<!--pages/fenxiao/mycommission.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="container">
+  <view class='paylog_top'>
+    <view>
+      <view class='paylog_txt'>可提现</view>
+      <view class='paylog_txt'>
+      ¥<span>{{commission}}</span> 元
+      <text>(待结算￥{{toBeSettled}}元)</text>
+      </view>
+    </view>
+    <view class='paylog_btn' bindtap='cash'>提现</view>
+  </view>
+  <view class='cells_ctr'>
+    <view class="tab">
+      <block wx:for="{{tabList}}" wx:key="key">
+        <view class="tab-item tab-item{{index}} wx:if={{th_type == item.type? 'tab-item-sel'+index :''}}" data-type="{{item.type}}" data-id="{{index}}" bindtap='tabSwitch'>{{item.name}}</view>
+      </block>
+    </view>
+
+    <view class='yj-list'>
+      <block wx:for="{{profitList}}" wx:key="key">
+        <view class="yj-itme"  style='display: {{th_type != "record" ? "flex" : "none"}}'>
+          <view class='left'>
+            <view class='tou-xiang'>
+              <image class="tou-xiang-img" src="{{item.avatar}}"></image>
+            </view>
+            <view class='des'>
+              <view class="yj-ellipsis">{{item.info}}</view>
+              <view class="yj-time">{{item.nickname}}{{item.add_date}}下单</view>
+            </view>
+          </view>
+          <view class='right'>
+            <view wx:if="{{item.pay_add_state == 0 || item.pay_add_state == 1}}">
+              <view clss="amount">+{{item.fee}}</view>
+              <view class="yj-time">{{item.pay_add_state == 2 ? "可提现":'预计'+item.time+'后可提现'}} </view>
+            </view>
+            <view class="invalid" wx:else>用户退款，收益失效</view>
+          </view>
+        </view>
+
+        <view class="yj-itme" style='display: {{th_type == "record" ? "flex" : "none"}}'>
+          <view class='left'>
+            <view class=''>
+              <image class="qian-icon" src="../../images/qian-icon.png"></image>
+            </view>
+            <view class='des'>
+              <view class="yj-ellipsis color-777">{{item.add_date}}下单</view>
+              <view class="yj-time {{item.pay_state == 0 ? 'color-DC030B' : ''}}">{{item.pay_state == 0 ? "审核中" : "提现成功"}}</view>
+            </view>
+          </view>
+          <view class='right'>
+            <view clss="amount">+{{item.fee}}</view>
+          </view>
+        </view>
+
+      </block>
+    </view>
+    <!-- <view class='cells_ctt' wx:for="{{dataList}}" wx:key="key">
+      <view class='paylog_t1'>
+        <view class='fl'>{{item.info}}</view>
+        <view class="fr {{item.type==5 ? 'span1' : 'span2'}}">{{item.type==5 ? '+' : '-'}}{{item.fee}}</view>
+      </view>
+      <view class='paylog_t2'>
+        <view class='fl'>{{item.add_date}}</view>
+        <view class='fr' wx:if="{{item.pay_state==-1}}">失败</view>
+        <view class='fr' wx:if="{{item.pay_state==0}}">审核中</view>
+        <view class='fr' wx:if="{{item.pay_state==1}}">成功</view>
+      </view>
+    </view> -->
+     <block wx:if="{{profitList.length<1}}">
+        <view class='none_txt'>暂无记录~</view>
+    </block>
+  </view>
+</view>

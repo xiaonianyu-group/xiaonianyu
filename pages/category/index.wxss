@@ -1,0 +1,539 @@
+/* pages/category/index.wxss */
+
+/*头部*/
+
+.top_ctr {
+  width: 100%;
+  padding: 0 30rpx;
+  /* height: 168rpx; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+.search_ctr {
+  float: left;
+  width: 100%;
+  margin: 10rpx 0;
+  height: 64rpx;
+  background: #f5f5f5;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 65rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.nav_ctr {
+  float: left;
+  margin-top: 10rpx;
+  width: 100%;
+  height: 68rpx;
+  line-height: 64rpx;
+  font-size: 32rpx;
+  display: flex;
+  white-space: nowrap;
+}
+
+.nav_cell, .nav_cell_on {
+  margin-right: 30rpx;
+  width: auto;
+  border-bottom: 4rpx #fff solid;
+  padding: 0 4rpx;
+  color: #999;
+  display: inline-block;
+}
+
+.nav_cell_on {
+  color: #dc030b;
+  border-bottom: 4rpx #dc030b solid;
+}
+
+/*幻灯*/
+
+.swiper {
+  /* float: left; */
+  margin-top: 82rpx;
+  width: 100%;
+  height: 380rpx;
+}
+
+.swiper image {
+  width: 100%;
+  height: 100%;
+}
+
+/*通用*/
+
+.h_ctr {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+}
+
+/*二级导航*/
+
+.fw_ctr {
+  float: left;
+  width: 100%;
+  height: 414rpx;
+  padding: 20rpx 0 10rpx;
+  display: flex;
+  white-space: nowrap;
+}
+
+.fw_ctt {
+  float: left;
+  margin: 0 20rpx;
+  width: 147rpx;
+  height: auto;
+}
+
+.fw_pic {
+  width: 147rpx;
+  height: 147rpx;
+  background: #f5f5f5;
+}
+
+.fw_pic image {
+  width: 147rpx;
+  height: 147rpx;
+}
+
+.fw_t1 {
+  float: left;
+  width: 100%;
+  line-height: 60rpx;
+  text-align: center;
+  color: #333;
+  font-size: 28rpx;
+}
+
+/*框*/
+
+.pub_ctr {
+  float: left;
+  margin-top: 20rpx;
+  width: 100%;
+  height: auto;
+  background: #fff;
+}
+
+.pub_title_ctr {
+  float: left;
+  width: 100%;
+  height: 88rpx;
+  border-radius: 20rpx 20rpx 0 0;
+  /* background: #f59740; */
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+.pub_main_title {
+  float: left;
+  width: 180rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.pub_sub_title {
+  float: left;
+  line-height: 88rpx;
+  font-size: 22rpx;
+  color: #dc030b;
+}
+
+.pub_title_btn {
+  float: right;
+  margin-top: 25rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  padding: 0 10rpx;
+  font-size: 22rpx;
+  color: #777;
+}
+
+.pub_ctt {
+  float: left;
+  width: 100%;
+  height: auto;
+  /* border-radius: 0 0 20rpx 20rpx; */
+  background: #fff;
+  /* padding-bottom: 20rpx; */
+  margin-left: -1%;
+}
+
+.pub_goods_ctr {
+  float: left;
+  margin-top: 20rpx;
+  /* margin-left: 20rpx; */
+  width: 100%;
+  height: auto;
+  padding: 6rpx 6rpx 10rpx;
+  /* box-shadow: 0 0 10rpx #ddd; */
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.pub_goods_pic {
+  position: relative;
+}
+
+.pub_goods_pic image {
+  width: 200rpx;
+  height: 200rpx;
+  display: block;
+}
+
+.pub_goods_rebate {
+  position: absolute;
+  padding: 0 10rpx;
+  width: auto;
+  height: 32rpx;
+  line-height: 32rpx;
+  color: #ff4b4a;
+  font-size: 20rpx;
+  border: 1px #ff4b4a solid;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  background: #fff;
+}
+
+.pub_mark_ctr {
+  float: left;
+  margin-right: 10rpx;
+  padding: 0 10rpx;
+  width: auto;
+  height: 32rpx;
+  line-height: 32rpx;
+  color: #fff;
+  font-size: 20rpx;
+  background: #ff4b4a;
+}
+
+.pub_price_ctr {
+  float: left;
+  width: 100%;
+  padding: 10rpx 0;
+  line-height: 50rpx;
+  color: #f59740;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.pub_price_ctr span {
+  padding-left: 20rpx;
+  color: #ddd;
+  font-size: 24rpx;
+  font-weight: normal;
+  text-decoration: line-through;
+}
+
+.pub_goods_title {
+  float: left;
+  width: 100%;
+  height: 58rpx;
+  line-height: 30rpx;
+  color: #333;
+  font-size: 28rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/*特价*/
+
+.topic_title {
+  float: left;
+  width: 100%;
+  padding: 0 15%;
+  padding-top: 10rpx;
+  text-align: center;
+  height: 90rpx;
+  line-height: 80rpx;
+  font-size: 36rpx;
+  box-sizing: border-box;
+}
+
+.topic_title_cell, .topic_title_cell_on {
+  position: relative;
+  float: left;
+  width: 100%;
+  color: #999;
+}
+
+.topic_title_cell_on {
+  color: #333;
+}
+
+.topic_title_cell_on .line {
+  position: absolute;
+  width: 70rpx;
+  height: 4rpx;
+  background: #333;
+  left: 226rpx;
+  top: 74rpx;
+  z-index: 9;
+}
+
+.topic_ctr {
+  float: left;
+  margin: 20rpx 16rpx 0;
+  width: 718rpx;
+  height: auto;
+}
+
+.topic_pic {
+  float: left;
+  width: 100%;
+  height: 340rpx;
+}
+
+.topic_pic image {
+  border-radius: 20rpx 20rpx 0 0;
+  width: 100%;
+  height: 340rpx;
+}
+
+.topic_ctt {
+  float: left;
+  width: 100%;
+  height: auto;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 0 0 20rpx 20rpx;
+}
+
+.topic_txt_ctr {
+  float: left;
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.topic_txt1 {
+  float: left;
+  width: 300rpx;
+  overflow: hidden;
+  font-size: 32rpx;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.topic_txt2 {
+  float: right;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.topic_txt2 span {
+  background: #333;
+  color: #fff;
+  padding: 0 4rpx;
+}
+
+.topic_txt3 {
+  float: left;
+  width: 100%;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.topic_txt3 span {
+  color: #f59740;
+}
+
+.swiper-catList {
+  height: 200rpx;
+}
+
+/* 时间样式 */
+
+.time_cut_down {
+  float: left;
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.cut_down_txt {
+  padding-left: 30rpx;
+  float: left;
+  color: #777;
+  font-size: 28rpx;
+}
+
+.cut_down_txt span {
+  /* background: #333; */
+  display: inline-block;
+  width: 34rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  color: #333;
+  text-align: center;
+  border: 2rpx solid #ccc;
+  border-radius: 4rpx;
+}
+
+/* 立即抢购列表样式 */
+
+.pub_ctt_goods_box {
+  display: inline-block;
+  flex: 1;
+  /* border: 2rpx solid #ff4b4a; *//* margin: 22rpx 12rpx 0; */
+  width: 31.3%;
+  margin-left: 2%;
+}
+
+.pub_ctt_goods_box:first-child {
+  /* margin-left: 34rpx; */
+}
+
+.pub_ctt_goods_box:last-child {
+  /* margin-right: 34rpx; */
+}
+
+.pub_goods_ctr2 {
+  float: left;
+  /* margin-top: 20rpx; */
+  width: 100%;
+  height: auto;
+  /* padding: 6rpx 6rpx 10rpx; */
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.pub_goods_pic {
+  position: relative;
+}
+
+.pub_goods_pic .goods_pic {
+  width: 210rpx;
+  height: 210rpx;
+  display: block;
+}
+
+.pub_goods_pic .worth_bug {
+  position: absolute;
+  left: -4rpx;
+  top: -22rpx;
+  width: 72rpx;
+  height: 24rpx;
+  display: block;
+}
+
+.pub_price_ctr {
+  float: left;
+  width: 100%;
+  padding: 10rpx 0;
+  line-height: 44rpx;
+  color: #dc030b;
+  font-size: 32rpx;
+  /* font-weight: bold; */
+}
+
+.pub_price_ctr .pub_rmb {
+  padding-left: 0;
+  line-height: 44rpx;
+  color: #dc030b;
+  font-size: 22rpx;
+}
+
+.pub_price_ctr span {
+  padding-left: 20rpx;
+  color: #ccc;
+  font-size: 24rpx;
+  font-weight: normal;
+  text-decoration: line-through;
+}
+
+.process_txt {
+  text-align: center;
+  color: #ccc;
+  font-size: 22rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  margin-top: 6rpx;
+}
+
+.process_txt span {
+  color: rgba(220, 3, 11, 0.8);
+  margin-left: 4rpx;
+}
+
+.process_checked {
+  /* position: absolute;
+  left: 0;
+  top: 0; */
+  width: 82rpx;
+  height: 12rpx;
+  background: linear-gradient(90deg, rgba(253, 199, 201, 1) 0%, rgba(244, 107, 112, 1) 100%);
+  border-radius: 6rpx;
+  opacity: 0.8;
+}
+
+.bottom_btns {
+  float: left;
+  width: 100%;
+}
+
+.pub_mark_btn {
+  width: 120rpx;
+  height: 40rpx;
+  margin: 0 auto;
+  font-size: 22rpx;
+  line-height: 40rpx;
+  text-align: center;
+  background: rgba(220, 3, 11, 0.8);
+  border-radius: 6rpx;
+  color: #fff;
+}
+
+.process_bg {
+  position: relative;
+  width: 182rpx;
+  height: 12rpx;
+  margin: 0 auto;
+  border-radius: 6rpx;
+  background: rgba(220, 3, 11, 0.1);
+  overflow: hidden;
+}
+
+.process_box {
+  float: left;
+  width: 100%;
+  padding: 10rpx 0;
+}
+
+.pub_goods_title {
+  float: left;
+  width: 100%;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: #777;
+  font-size: 22rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.box-hight {
+  /* overflow: unset; */
+}
+@import "/style/style.wxss";

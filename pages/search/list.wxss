@@ -1,0 +1,25 @@
+/* pages/search/list.wxss */
+@import "/style/goods.wxss";
+/*筛选*/
+.top_navctr {
+  width: 100%;
+  height:40px;
+  white-space: nowrap;
+  font-size: 32rpx;
+  border-bottom:1px #eee solid;
+  position: fixed;
+  z-index: 9999;
+  background: #fff;
+}
+.top_nav,.top_nav1 {
+  float: left;
+  width:250rpx;
+  line-height:80rpx;
+  color: #333;
+  text-align: center;
+}
+
+.top_nav1 {
+  color: #DC030B;
+}
+@import "/style/style.wxss";

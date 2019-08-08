@@ -1,0 +1,251 @@
+<!--index.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+
+<view class="container">
+  <view class='top_ctr'>
+    <!-- <view class='search_ctr' bindtap='toSearch'>
+            <i class="iconfont icon-search search_icon"></i> 搜索商品
+        </view> -->
+    <view class="top-nav">
+      <scroll-view class='nav_ctr' scroll-x="true" scroll-into-view="n{{currentID}}">
+        <!-- <view id="n0" class='nav_cell_on'>精选</view> -->
+        <block wx:for="{{catList}}" wx:key="key">
+          <!-- <view class='nav_cell' bindtap='goCategory' data-id='{{item.id}}' data-index="{{index}}">{{item.wap_title}}</view> -->
+          <view id='n{{item.id}}' class="{{ item.id==currentID ? 'nav_cell_on' : 'nav_cell' }}" bindtap='goCategory' data-id='{{item.id}}' data-index="{{index}}">{{item.wap_title}}</view>
+        </block>
+      </scroll-view>
+      <view wx:if="{{false}}" class="xl-nav {{is_xl ? 'icon-you1-x' : ''}}" bindtap='dropDownNav'>
+        <i class="iconfont icon-you1"></i>
+      </view>
+      <view class="xl-k" wx:if="{{false}}">
+        <view class="xl-k-top">
+          <view>精品推荐</view>
+          <view class="xl-nav-2 {{is_xl ? 'icon-you1-x2' : ''}}" bindtap='dropDownNav'>
+            <i class="iconfont icon-you1 {{is_xl ? 'icon-you1-x2' : ''}}"></i>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="section swiper">
+    <swiper indicator-dots="{{indicatorDots}}" indicator-color="rgba(255,255,255,.5)" indicator-active-color="rgb(255,255,255)" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper_scroll">
+      <block wx:for="{{catList[].pic}}" wx:key="key">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" bindtap="showSlide" data-url="{{item.url}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view> -->
+  <!-- style="height:{{aheight}}px" -->
+  <view class='kk'>
+    <swiper class="swiper-catList" indicator-dots="{{false}}" autoplay="{{false}}" bindchange="bindchange" current="{{current}}" duration="300">
+      <block wx:for="{{catList}}" wx:key="key">
+        <swiper-item item-id='{{item.id}}' class="swiper-item{{index}}" style="overflow-y: scroll; -webkit-overflow-scrolling:touch">
+          <scroll-view id="scroll-view-h" scroll-y="true" bindscrolltolower="lower" bindscroll="getScroll" scroll-top="{{scroll_top}}" scroll-with-animation="true">
+            <view class="section swiper">
+              <swiper indicator-dots="{{catList[index].pic.length == 1 ? false : true }}" indicator-color="rgba(255,255,255,.5)" indicator-active-color="rgb(255,255,255)" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper_scroll">
+                <block wx:for="{{catList[index].pic}}" wx:key="key">
+                  <swiper-item>
+                    <image src="{{item.pic}}" class="slide-image" bindtap="showSlide" data-url="{{item.url}}" />
+                  </swiper-item>
+                </block>
+              </swiper>
+            </view>
+            <view class='bc_white' style='display:{{ swiper_index == 0 ? "flex" : "none"}}'>
+              <view class=''>
+                <image class="fw_img-1" src="../../images/icon_sheng.png" />
+                <view class='fw-tb'>全网底价</view>
+              </view>
+              <view class=''>
+                <image class="fw_img-2" src="../../images/icon_zheng.png" />
+                <view class='fw-tb'>品牌授权</view>
+              </view>
+              <view class=''>
+                <image class="fw_img-3" src="../../images/icon_kuai.png" />
+                <view class='fw-tb'>全场包邮</view>
+              </view>
+              <view class='vip_widget'>
+                <image class="fw_img-3" src="../../images/icon_bao.png" />
+                <view class='fw-tb'>买贵包赔</view>
+                <image class='vip_shadow' mode='widthFix' src='../../images/vip.png'></image>
+              </view>
+            </view>
+            <scroll-view scroll-y="true" class='fw_ctr bc_white' hidden="{{swiper_index == 0?'0':''}}">
+              <view class='fw_ctt' wx:for="{{catList[index].children}}" wx:key="key">
+                <navigator url='/pages/goods/list?id={{item.id}}'>
+                  <view class='fw_pic'>
+                    <image src='{{item.pic}}' />
+                  </view>
+                  <view class='fw_t1'>{{item.wap_title}}</view>
+                </navigator>
+              </view>
+            </scroll-view>
+            <!-- 新版 - 新人专享 -->
+            <view class='pub_ctr2' wx:if="{{new_people == 1 && swiper_index == 0 }}">
+              <view class='pub_title_ctr2'>
+                <view class="zt-title">
+                  <view class='pub_main_title2'>新人专享</view>
+                  <view class='pub_sub_title2'>全网底价，只为遇见你</view>
+                </view>
+                <navigator url="/pages/topic/active" class='pub_title_btn2'>更多 ></navigator>
+              </view>
+              <scroll-view class='pub_scroll' scroll-x style="width: 100%">
+                <view wx:for="{{newGoodsList}}" wx:key="key" class="pub_goods_box">
+                  <navigator url="/pages/goods/detail?id={{item.id}}" class='pub_goods_ctr2'>
+                    <view class='pub_goods_pic2'>
+                      <image style='display:none;' class="icon_discount" src="../../images/icon_discount.png" />
+                      <view style='display:none;' class='goods_discount'>{{item.rebate}}折</view>
+                      <image class="goods_pic" src="{{item.pic}}" />
+                    </view>
+                    <view class='pub_goods_title2'>{{item.title}}</view>
+                    <view class='pub_price_ctr'>
+                      <span class="pub_rmb">¥</span>
+                      {{item.promotion_price}}
+                      <span>¥{{item.markey_price}}</span>
+                    </view>
+                    <view class='pub_mark_ctr2'>新人价</view>
+                  </navigator>
+                </view>
+              </scroll-view>
+            </view>
+
+            <!--限时抢购-->
+            <view class='pub_ctr2'>
+              <view class='pub_title_ctr2'>
+                <view class="zt-title">
+                  <view class='pub_main_title2'>限时抢购</view>
+                  <view class='pub_sub_title2'>行业底价，我们是认真的</view>
+                </view>
+                <navigator url="/pages/promotion/flashsale?cat_id=&e_date={{e_date}}" class='pub_title_btn2'>更多 ></navigator>
+              </view>
+              <view class='time_cut_down'>
+                <view class='cut_down_txt' wx:if="{{xianShi.countDD > 2 ? false : true}}">
+                  距结束
+                  <span>{{xianShi.countHH}}</span>
+                  :
+                  <span>{{xianShi.countMM}}</span>
+                  :
+                  <span>{{xianShi.countSS}}</span>
+                </view>
+                <view class='cut_down_txt' wx:else>距结束
+                  <span>{{xianShi.countDD}}</span>天</view>
+              </view>
+              <view class='pub_ctt'>
+                <view wx:for="{{hotGoodsList}}" wx:key="key" class="pub_ctt_goods_box">
+                  <navigator url="/pages/goods/detail?id={{item.id}}" class='pub_goods_ctr'>
+                    <view class='pub_goods_pic'>
+                      <!-- <view class='pub_goods_rebate'>{{item.rebate}}折</view> -->
+                      <image class="worth_bug" src="../../images/icon_worthbuy.png" />
+                      <image class="goods_pic" src="{{item.pic}}" />
+                    </view>
+                    <view class='pub_price_ctr' style="text-align: center">
+                      <span class="pub_rmb">¥</span>
+                      {{item.promotion_price}}
+                      <span>¥{{item.markey_price}}</span>
+                    </view>
+                    <view class='pub_goods_title'>{{item.title}}</view>
+                    <view class="process_box">
+                      <view class="process_bg">
+                        <view class="process_checked" style="width: {{item.sale_rate}}%;"></view>
+                      </view>
+                      <view class="process_txt">已售
+                        <span>{{item.sale_rate}}%</span>
+                      </view>
+                    </view>
+                    <view class="bottom_btns">
+                      <view class='pub_mark_btn'>立即抢</view>
+                    </view>
+                  </navigator>
+                </view>
+              </view>
+            </view>
+
+            <view class='pub_ctr2' style='background:{{ swiper_index == 0 ? "#fff" : "none"}}'>
+              <view style='display:{{ swiper_index == 0 ? "block" : "none"}}'>
+                <view class='pub_title_ctr2'>
+                  <view class='pub_main_title2'>品牌特惠</view>
+                  <!-- <navigator url="#" class='pub_title_btn2'>更多 ></navigator> -->
+                </view>
+                <view class="tabs_box">
+                  <view class="{{tabSelect ? 'tab active' : 'tab'}}" data-type="index" bindtap="tabSwitch">火爆开抢</view>
+                  <view class="{{tabSelect ? 'tab' : 'tab active'}}" data-type="will" bindtap="tabSwitch">即将开售</view>
+                </view>
+              </view>
+              <view class='topic_title' style='display:{{ swiper_index == 0 ? "none" : "block"}}'>
+                <view class='topic_title_cell_on_2'>品牌特卖
+                  <view class='line'></view>
+                </view>
+              </view>
+              <view wx:if="{{tabSelect}}" wx:for="{{topicList}}" wx:key="key">
+                <navigator url="/pages/topic/detail?id={{item.id}}" class='topic_ctr' hover-class='none'>
+                  <view class='topic_pic'>
+                    <image src="{{item.pic}}" />
+                    <view class="discount_box">
+                      <text style='color:#DC030B;font-size:24rpx;font-weight:900;'>{{item.starting_price}} </text>折起</view>
+                  </view>
+                  <view class='topic_ctt'>
+                    <view class='topic_txt_ctr'>
+                      <view class='topic_txt1 ellipsis'>{{item.title}}</view>
+                      <view class='topic_txt2 is-xs'>
+                        <view class="xs-xs" style='display:{{ item.countDD > 2 ? "block" : "none"}}'>
+                          还剩
+                          <text> {{item.countDD}}</text>天
+                        </view>
+                        <view class="d-xs" style='display:{{ item.countDD <= 2 ? "block" : "none"}}'>不足
+                          <text> {{item.countDD <= 1 ? 1:item.countDD}}</text>天</view>
+                      </view>
+                    </view>
+                    <!-- <view class='topic_txt3'>
+                        全场
+                        <span>{{item.starting_price}}</span>
+                        折
+                    </view> -->
+                  </view>
+                </navigator>
+              </view>
+              <view wx:if="{{!tabSelect}}" wx:for="{{topicList}}" wx:key="key">
+                <!-- <navigator url="/pages/topic/detail?id={{item.id}}" class='topic_ctr'> -->
+                <view bindtap="kaishouTips" class='topic_ctr'>
+                  <view class='topic_pic'>
+                    <image src="{{item.pic}}" />
+                    <view class='e_dataTips'>
+                      {{item.b_date}}开售
+                    </view>
+                  </view>
+                  <view class='topic_ctt'>
+                    <view class='topic_txt_ctr'>
+                      <view class='topic_txt1 ellipsis'>{{item.title}}</view>
+                    </view>
+                  </view>
+                </view>
+                <!-- </navigator> -->
+              </view>
+            </view>
+            <!--专区-->
+            <!-- <view class='topic_title'>
+        <view class='topic_title_cell_on' style='width: 100%;'>今日特卖<view class='line' style='left: 226rpx;'></view></view>
+        <view class='topic_title_cell' hidden='true'>即将开售<view class='line'></view></view>
+    </view> -->
+            <!--底线-->
+            <!-- <view class='last_line_ctr' wx:if="{{hiddenLoading}}">
+              <view class='last_txt'>这是我的底线</view>
+              <view class='last_line'></view>
+            </view> -->
+            <view class='last_line_ctr'>
+              <view wx:if="{{current_page == last_page}}">
+                <view class='last_txt'>这是我的底线</view>
+                <view class='last_line'></view>
+              </view>
+              <view wx:else class='loading_box'>拼命加载中…</view>
+            </view>
+          </scroll-view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!--置顶-->
+  <view class='to_top' hidden="{{hiddenTop}}" bindtap='goTop'>
+    <image src='../../images/icon_fanhuitob.png' />
+  </view>
+</view>

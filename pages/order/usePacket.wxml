@@ -1,0 +1,24 @@
+<view class='packetList-wrap'>
+  <view bindtap="{{item.enable?'couponChange':''}}" data-yh_price='{{item.yh_price}}' data-index='{{index}}' class='packetList-item flex' wx:for="{{couponList}}" wx:key='{{index}}'>
+    <view class='packetList-itemLeft'>
+      <text>￥</text>
+      <text class='yh_price'>{{item.yh_price}}</text>
+    </view>
+    <view class='packetList-itemRight'>
+      <view>{{item.title}}</view>
+      <view  wx:if="{{item.countDD != 0}}" class='small'>有效期至{{item.use_e_date}}</view>
+      <view wx:else class='small'>{{item.countHH || '24'}}:{{item.countMM || '00'}}:{{item.countSS || '00'}} 后过期</view>
+      <view class='radio_widget'>
+        <radio disabled='{{!item.enable}}' color='#DC030B' name='m_cart' checked="{{item.is_use != 0}}" />
+      </view>
+    </view>
+    <!-- 背景图选择 -->
+    <image wx:if="{{item.is_use != 0}}" mode='widthFix' src='https://img.xiaonianyu.com/1564839015br.png'></image>
+    <block wx:else>
+      <image wx:if="{{item.enable}}" mode='widthFix' src='https://img.xiaonianyu.com/1564832266wa.png'></image>
+      <image wx:if="{{!item.enable}}" mode='widthFix' src='https://img.xiaonianyu.com/1564832338ym.png'></image>
+    </block>
+  </view>
+  <view class='packetList-tips'>没有更多红包了</view>
+</view>
+<view bindtap='closePacketList' class='closePacketList'>不使用红包</view>

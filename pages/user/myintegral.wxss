@@ -1,0 +1,42 @@
+/* pages/user/myintegral.wxss */
+@import "/style/cells.wxss";
+page{
+  background-color:#fff;
+}
+.paylog_top {
+  width: 100%;
+  height: auto;
+  background: #f25939;
+  padding: 24rpx;
+  box-sizing: border-box;
+  color: #fff;
+  position: relative;
+}
+.paylog_txt {
+  float: left;
+  width: 100%;
+  line-height: 50rpx;
+  font-size: 28rpx;
+}
+.paylog_txt span {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.paylog_t1,.paylog_t2 {
+  float: left;
+  width: 100%;
+  font-size: 28rpx;
+  line-height: 44rpx;
+}
+.paylog_t1 .span1 {
+  color: #b4282d;
+}
+.paylog_t1 .span2 {
+  color: #48b76a;
+}
+
+.paylog_t2 {
+  font-size: 24rpx;
+  color: #999;
+}

@@ -1,0 +1,10 @@
+<!--pages/search/index.wxml-->
+<view class="container">
+    <view class='search_ctr'>
+        <view class='search_ctt'>
+            <i class="iconfont icon-search"></i>
+            <input type="text" placeholder="请输入关键词搜索" bindinput="inputTyping" bindconfirm="goSearch" confirm-type="search" />
+        </view>
+        <view class='search_btn' bindtap='goSearch'>搜索</view>
+    </view>
+</view>

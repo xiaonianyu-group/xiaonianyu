@@ -1,0 +1,196 @@
+<!--pages/user/myorderdetail.wxml-->
+<view class="container">
+  <view class='top_ctr'>
+    <view class=''>
+      <view class='u_addr_sect flex' wx:if="{{detail.send_type=='快递'}}">
+        <view class='u_addr_wrap flex flex'>
+          <image class='u_addr_icon' mode='widthFix' src='../../images/Order_dingwei.png'></image>
+          <view class='u_addr_widget'>
+            <view>
+              <text>{{detail.name}}</text>
+              <text>{{detail.tel}}</text>
+            </view>
+            <view class='u_addr'>{{detail.address}}</view>
+          </view>
+        </view>
+
+      </view>
+      <view class='u_addr_sect' wx:else>
+        <view class='top_txt'>自提点：</view>
+        <view class='top_txt'>{{detail.pickup_name}} {{detail.pickup_tel}}</view>
+        <view class='top_txt'>
+          <span>{{detail.pickup_addr}}</span>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class='cells_ctr'>
+    <view class='cells_ctt'>
+      <view class='fl'>包裹1</view>
+      <view class='fr c_red'>{{detail.order_state}}</view>
+    </view>
+    <view class="cells_ctt {{index+1==detail.goods.length ? 'border0' : ''}}" wx:for="{{detail.goods}}" wx:key="key">
+      <navigator url="/pages/goods/detail?id={{item.goods_id}}" class='goods_pic'>
+        <image mode='widthFix' src="{{item.pic}}" />
+      </navigator>
+      <view class='goods_rctr'>
+        <view wx:if="{{detail.order_state=='已发货'}}">
+          <view class='goods_rbtn' wx:if="{{item.th_type==0}}" bindtap='toReturns' data-u_id='{{detail.user_id}}' data-order_sn='{{detail.order_sn}}' data-id='{{item.id}}'>退换货</view>
+          <view wx:else>
+            <view class='goods_rbtn' wx:if="{{item.th_state==0}}">退换中</view>
+            <view class='goods_rbtn' wx:if="{{item.th_state==1}}">退换成功</view>
+          </view>
+        </view>
+        <navigator url="/pages/goods/detail?id={{item.goods_id}}" class='goods_txt'>
+          <view class='goods_title'>{{item.title}}</view>
+          <view class='goods_spec'>{{item.spec_item}}</view>
+        </navigator>
+        <view>
+          <view class='fl'>¥{{item.price}}</view>
+          <view class='fr'>
+            <span>×{{item.amount}}</span>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <!-- 商品 -->
+  <view class='order_wrap' wx:for="{{detail.goods}}" wx:key="key">
+    <view class='order_top flex'>
+      <view class='XNY_title flex'>
+        <image class='shop_logo' mode='widthFix' src='../../images/logo.png'></image>
+        <text>小年鱼自营商城</text>
+      </view>
+      <view hidden='{{index != 0}}' class='service_widget'>
+        <block wx:if="{{detail.order_state=='待付款'}}">
+          <text>下单领红包</text>
+        </block>
+        <block wx:else>
+          <text>点我领红包</text>
+        </block>
+        <image bindtap='showShadow' data-isshow='true' mode='widthFix' src='../../images/hongbao.png'></image>
+        <!-- <image wx:else bindtap='showShadow' data-isshow='true' data-replace='replace' mode='widthFix' src='../../images/hongbao.gif'></image> -->
+      </view>
+    </view>
+    <navigator url='/pages/goods/detail?id={{item.goods_id}}' class='order_middle'>
+      <view class="good_widget flex">
+        <view class='goods_pic'>
+          <image mode='widthFix' src="{{item.pic}}" />
+        </view>
+        <view class='goods_right'>
+          <view class='goods_title'>{{item.title}}</view>
+          <view class='right_down'>
+            <view class='goods_spec'>{{item.spec_item}}</view>
+            <view class='goods_price_widget'>
+              <view class='goods_price'>¥{{item.price}}</view>
+              <view class='goods_num'>×{{item.amount}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+
+  <view class='order_info_sect'>
+    <view class='info_title'>订单信息</view>
+    <view class='info_content_wrap flex'>
+      <view class='info_content_widget'>
+        <view class='info_item'>订单编号：{{detail.order_sn}}</view>
+        <view class='info_item'>下单时间：{{detail.add_date}}</view>
+        <view class='info_item'>支付金额：￥{{detail.pay_price}}</view>
+        <view wx:if='{{detail.red_package != 0}}' class='info_item'>红包抵扣：￥{{detail.red_package}}</view>
+        <view class='info_item'>备注信息：{{detail.info?detail.info:'无'}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view class='cells_ctr'>
+    <view class='cells_ctt'>
+      订单编号：{{detail.order_sn}}
+    </view>
+    <view class='cells_ctt'>
+      下单时间：{{detail.add_date}}
+    </view>
+
+    <view class="cells_ctt">
+      配送方式：{{detail.send_type}}
+    </view>
+    <view class='cells_ctt' wx:if="{{detail.send_type=='自提'}}">
+      提货号码：{{detail.pickup_sn}}
+    </view>
+
+    <view class='cells_ctt border0'>
+      <view>支付方式：{{detail.pay_type}}</view>
+      <view>商品合计：{{detail.price}}</view>
+      <view wx:if="{{detail.rebate_price>0}}">会员折扣：{{detail.rebate_price}}</view>
+      <view wx:if="{{detail.discount_price>0}}">订单优惠：{{detail.discount_price}}</view>
+      <view wx:if="{{detail.coupon_price>0}}">优惠券减：{{detail.coupon_price}}</view>
+      <view>快递运费：{{detail.express_price}}</view>
+    </view>
+  </view>
+  <view class='cells_ctr'>
+    <view class='cells_ctt c_red border0'>
+      合计应付：{{detail.pay_price}}
+    </view>
+  </view> -->
+  <view class='cells_ctr go_down'>
+    <view wx:if="{{detail.order_state=='待付款'}}" class='countdown-tip'>请在{{oInvalidTimer.countMM || '30'}}分{{oInvalidTimer.countSS || '00'}}秒内完成支付，  超时将自动取消订单</view>
+    <view class='cells_ctt border0'>
+      <block wx:if="{{detail.order_state=='已取消'}}">
+        <view class='myorder_btn' bindtap="delOrder" data-id="{{currentID}}">删除订单</view>
+      </block>
+      <block wx:if="{{detail.order_state=='待付款'}}">
+        <view class='myorder_btn_on' bindtap="goPay" data-sn="{{detail.order_sn}}" data-pay_price='{{detail.pay_price}}'>去付款</view>
+        <view class='myorder_btn' bindtap="cancelOrder" data-id="{{currentID}}">取消订单</view>
+      </block>
+      <block wx:if="{{detail.order_state=='待发货'}}">
+        <view class="shareBtn_widget">
+          <!-- <button open-type="contact" class='shareBtn'></button> -->
+          提醒发货
+        </view>
+      </block>
+      <block wx:if="{{detail.order_state=='已发货'}}">
+        <view class='tips_widget flex'>
+          <view class='tips_ture'>7天自动确认收货</view>
+          <view>
+            <view class='myorder_btn_on' bindtap="shOrder" data-id="{{currentID}}">确认收货</view>
+            <view class='myorder_btn' wx:if="{{detail.send_type=='自提'}}">自提订单</view>
+            <view class='myorder_btn' bindtap="showSend" data-id="{{currentID}}" wx:else>查看物流</view>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{detail.order_state=='交易成功'}}">
+        <view class='myorder_btn_on' bindtap="goComment" data-id="{{detail.id}}">{{ detail.is_comment=='0' ? '去评论' : '已评论' }}</view>
+        <view class='myorder_btn' wx:if="{{detail.send_type=='自提'}}">自提订单</view>
+        <view class='myorder_btn' bindtap="showSend" data-id="{{currentID}}" wx:else>查看物流</view>
+      </block>
+    </view>
+  </view>
+  <!-- 遮罩 -->
+  <view wx:if='{{shadow}}' data-isshow='true' bindtap='showShadow' class='shadow_wrap'>
+    <view catchtap='showShadow' class='service_box'>
+      <image data-isshow='true' bindtap='showShadow' class='shadowClose' src='../../images/shadowClose.png'></image>
+      <image class='xueji_icon' src='https://img.xiaonianyu.com/1563271530tw.jpg'></image>
+      <view>你好，{{userInfo.nickName}}，我是雪姬</view>
+      <view class='service_context'>
+        <view class='flex context_item'>
+          <view class='dot'></view>
+          <view>下单领首单红包</view>
+        </view>
+        <view class='flex context_item'>
+          <view class='dot'></view>
+          <view>退换货专属宝藏女孩</view>
+        </view>
+        <view class='flex context_item'>
+          <view class='dot'></view>
+          <view>定制个人穿衣搭配</view>
+        </view>
+      </view>
+
+      <view class='service_btn'>
+        <button open-type="contact" bindcontact="showShadow" data-isshow='true' show-message-card="ture" class='serviceBtn' style='line-height:98rpx;'></button>
+        点我回复“<text>红包</text>”即刻拥有
+      </view>
+    </view>
+  </view>
+</view>

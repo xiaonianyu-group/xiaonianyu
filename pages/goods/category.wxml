@@ -1,0 +1,21 @@
+<!--pages/goods/category.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="container">
+    <scroll-view class="category_left" style="height: {{windowHeight}}px;" scroll-y="true">
+        <view wx:for="{{catList1}}" wx:key="key" bindtap="toggleCategory" data-id="{{item.id}}" class="category-item {{currentItem==item.id?'current':''}}">{{item.wap_title}}</view>
+    </scroll-view>
+    <scroll-view class="category_right" style="height: {{windowHeight}}px;" scroll-y="true">
+        <view wx:for="{{brandList}}" wx:key="key">
+            <navigator url='/pages/goods/list?brand_id={{item.id}}&id={{currentItem}}' class='category_pctr'>
+                <view class="category_pic">
+                    <image mode='widthFix' src="{{item.pic}}"/>
+                </view>
+                <view class="category_txt">{{item.title}}</view>
+            </navigator>
+        </view>
+        <block wx:if="{{brandList.length<1}}">
+            <view class='none_ctr'><i class="iconfont icon-none"></i></view>
+            <!-- <view class='none_txt'>暂无品牌!</view> -->
+        </block>
+    </scroll-view>
+</view>

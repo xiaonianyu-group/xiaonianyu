@@ -1,0 +1,85 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/goods/category",
+    "pages/goods/list",
+    "pages/goods/detail",
+    "pages/goods/comment",
+    "pages/article/list",
+    "pages/article/detail",
+    "pages/topic/index",
+    "pages/topic/detail",
+    "pages/order/index",
+    "pages/order/cart",
+    "pages/order/pay",
+    "pages/user/index",
+    "pages/user/myaddress",
+    "pages/user/addaddress",
+    "pages/user/editaddress",
+    "pages/user/myorder",
+    "pages/user/myorderdetail",
+    "pages/user/mycoupon",
+    "pages/user/mycomment",
+    "pages/user/mybalance",
+    "pages/user/myintegral",
+    "pages/user/returns",
+    "pages/user/returnsApply",
+    "pages/user/cashWithdrawal",
+    "pages/user/cashSuccess",
+    "pages/search/index",
+    "pages/search/list",
+    "pages/fenxiao/index",
+    "pages/fenxiao/mycommission",
+    "pages/fenxiao/myteam",
+    "pages/authorize/index",
+    "pages/category/index",
+    "pages/promotion/flashsale",
+    "pages/logs/logs",
+    "pages/user/logistics",
+    "pages/topic/active",
+    "pages/topic/trust",
+    "pages/order/usePacket"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "小年鱼品牌折扣商城",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#333",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/ico_home.png",
+        "selectedIconPath": "images/ico_home_on.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/goods/category",
+        "iconPath": "images/ico_cat.png",
+        "selectedIconPath": "images/ico_cat_on.png",
+        "text": "品牌"
+      },
+      {
+        "pagePath": "pages/order/cart",
+        "iconPath": "images/ico_cart.png",
+        "selectedIconPath": "images/ico_cart_on.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "iconPath": "images/ico_user.png",
+        "selectedIconPath": "images/ico_user_on.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,9 @@
+<!--pages/article/detail.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<import src="../../utils/wxParse/wxParse.wxml"/>
+<view class="container">
+    <view class="info_tile">{{detail.title}}</view>
+    <view class="info_sm">{{detail.add_date}} {{detail.source==null ? '' : detail.source}}</view>
+    <view class="info_ctr"><template is="wxParse" data="{{wxParseData:article.nodes}}"/></view>
+    <view class="info_hits">阅读：{{detail.hits}}</view>
+</view>

@@ -1,0 +1,40 @@
+<view class='logistics_title sect flex'>
+  <view class='imgWidget'>
+    <image mode='widthFix' src='{{logistics.pic}}'></image>
+  </view>
+  <view class='title_widget'>
+    <view class='title'>{{logistics.express_title}}</view>
+    <!-- <view class='tel'>{{logistics.express_sn}}</view> -->
+  </view>
+</view>
+<view class='logistics_sn sect flex'>
+  <view>
+    <text> {{logistics.express_title}} </text>
+    <text> {{logistics.express_sn}} </text>
+  </view>
+  <text bindtap='copyHandle'>复制</text>
+</view>
+<view class='logistics_info sect'>
+  <block wx:for="{{info}}" wx:key="key">
+    <view class='flex info_item'>
+      <view class='date_info'>
+        <view class='day_info'>{{item.day}}</view>
+        <view>{{item.isTimer}}</view>
+      </view>
+      <view class='axis_widget'>
+        <view wx:if='{{index != 0}}' class='line_t'></view>
+        <view wx:if='{{index != 0}}' class='Dot'></view>
+        <view wx:else style='width:48rpx;height:48rpx;' class='Dot '>
+          <image wx:if="{{item.status != '揽收' && item.status != '已发货'}}" mode='widthFix' src='../../images/yunshuzhong.png'></image>
+          <image wx:if="{{item.status == '揽收'}}" mode='widthFix' src='../../images/yilanjian.png'></image>
+          <image wx:if="{{item.status == '已发货'}}" mode='widthFix' src='../../images/yifahuo.png'></image>
+        </view>
+        <view wx:if='{{index != infoLength - 1}}' class='line_d'></view>
+      </view>
+      <view class='txt_info'>
+        <view class='status' wx:if="{{index == 0 || item.status == '已下单' || item.status == '已发货' || item.status == '揽收' || item.status == '签收'}}">{{item.status}}</view>
+        <view>{{item.context}}</view>
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,40 @@
+/**cells.wxss**/
+/*文章,会员中心,地址,购物车,我的订单,订单详情,提交订单,支付列表*/
+.cells_ctr {
+  float: left;
+  width: 100%;
+  border-bottom: 2rpx #f2f2f2 solid;
+  border-top: 2rpx #f2f2f2 solid;
+  padding-left: 24rpx;
+  background: #fff;
+  margin-bottom: 16rpx;
+  box-sizing: border-box;
+}
+.cells_ctt {
+  float: left;
+  width: 100%;
+  border-bottom: 2rpx #f2f2f2 solid;
+  padding: 20rpx 0;
+  padding-right: 24rpx;
+  font-size: 32rpx;
+  box-sizing: border-box;
+}
+.cells_ctt span {
+  font-family: 宋体;
+  color: #b4282d;
+}
+/*右侧有箭头使用*/
+.cells_txt {
+  float: left;
+  width: 100%;
+}
+.cells_txt_left {
+  float: left;
+}
+.cells_txt_right {
+  float: right;
+}
+.cells_txt_right i {
+  color: #999;
+}
+.border0 { border: 0;}

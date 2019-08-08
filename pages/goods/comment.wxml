@@ -1,0 +1,13 @@
+<!--pages/goods/comment.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="container">
+    <view class="c_ctr" wx:for="{{clist}}" wx:key="key">
+        <view>
+            <view class='c_pic' wx:if="{{item.is_http>0}}"><image src="{{item.avatar}}"/></view>
+            <view class='c_pic' wx:else><image src="{{rootUrl}}{{item.avatar}}"/></view>
+            <view class='c_name'>{{item.user}}</view>
+        </view>
+        <view class='c_date'>{{item.add_date}} {{item.spec_item}}</view>
+        <view class="c_info">{{item.info}}</view>
+    </view>
+</view>

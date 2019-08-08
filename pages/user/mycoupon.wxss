@@ -1,0 +1,64 @@
+page {
+  border-top: 1rpx solid #eee;
+  background: white;
+}
+
+.packetList-wrap {
+  padding: 20rpx 0rpx;
+}
+
+.packetList-item {
+  height: 200rpx;
+  position: relative;
+  margin-bottom: 20rpx;
+  display: flex;
+  padding: 0 30rpx;
+  color: #DC030B;
+}
+
+.packetList-item image {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: -1;
+}
+
+.packetList-tips {
+  padding: 34rpx 0 122rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #777;
+  text-align: center;
+}
+
+.packetList-itemLeft {
+  width: 198rpx;
+  padding: 58rpx 0;
+  text-align: center;
+  line-height: 50rpx;
+}
+
+.yh_price {
+  font-size: 64rpx;
+  line-height: 78rpx;
+}
+
+.packetList-itemRight {
+  width: 490rpx;
+  padding: 56rpx 0 50rpx 110rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  font-weight: 600;
+}
+
+.packetList-itemRight .small {
+  font-size: 26rpx;
+  opacity: 0.8;
+  font-weight: 400;
+  line-height: 50rpx;
+}

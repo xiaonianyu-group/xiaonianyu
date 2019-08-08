@@ -1,0 +1,9 @@
+/* pages/article/detail.wxss */
+@import "/utils/wxParse/wxParse.wxss";
+@import "/style/info.wxss";
+page{
+  background-color:#fff;
+}
+.container {
+  padding: 20rpx;
+}

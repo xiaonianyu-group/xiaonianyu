@@ -1,0 +1,60 @@
+/* pages/fenxiao/myteam.wxss */
+@import "/style/cells.wxss";
+.container {
+  padding-top:96rpx;
+}
+.tab_ctr {
+  position:fixed;
+  width: 100%;
+  height: 80rpx;
+  background: #fff;
+  border-bottom: 2rpx #f2f2f2 solid;
+  font-size: 32rpx;
+  z-index: 9;
+}
+.tab_ctt {
+  position: absolute;
+  width: 100%;
+  height: 82rpx;
+  left:0;
+  top:0;
+  z-index: 9;
+}
+.tab_cell,.tab_cell_on {
+  float: left;
+  width: 33.333333%;
+  height: 76rpx;
+  line-height: 76rpx;
+  text-align: center;
+  padding-bottom: 6rpx;
+}
+.tab_cell_on {
+  padding-bottom: 0rpx;
+}
+
+.user_pic {
+  float: left;
+  margin: 10rpx 0;
+  width: 68rpx;
+  height: 68rpx;
+}
+.user_pic image {
+  width: 100%;
+  display: block;
+  border-radius: 50%;
+}
+.user_name {
+  float: left;
+  padding-left: 20rpx;
+  line-height: 88rpx;
+  font-size: 28rpx;
+}
+.user_date {
+  float: right;
+  padding-right: 24rpx;
+  line-height: 88rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+@import "/style/style.wxss";

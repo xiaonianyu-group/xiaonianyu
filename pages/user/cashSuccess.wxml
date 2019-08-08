@@ -1,0 +1,11 @@
+<!--pages/user/cashSuccess.wxml-->
+<view class='container'>
+  <view class="main">
+  <image class="success" src='../../images/success.png'></image>
+  <view class='ft-40'>提交成功</view>
+   <view class='ft-28'>审核通过后，我们将以红包形式发放给您</view>
+    <view class='return-Home'>
+      <navigator url="../index/index" open-type='switchTab'>返回首页</navigator>
+    </view>
+  </view>
+</view>

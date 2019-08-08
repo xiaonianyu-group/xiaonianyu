@@ -1,0 +1,20 @@
+/* pages/goods/authorize.wxss */
+page{background-color:#fff;}
+
+.tip {
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  margin: 34rpx 0 14rpx;
+  color: #777; 
+}
+
+.imgList {
+  width: 54%;
+  margin: 0 auto;
+}
+
+.wxParse-img {
+  width: 100% !important;
+  margin: 9rpx;
+}

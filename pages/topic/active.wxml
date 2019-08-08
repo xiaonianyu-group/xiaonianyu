@@ -1,0 +1,80 @@
+<scroll-view scroll-y="true" style="height:{{scrollHeight}}px;" bindscrolltolower="showScrollLower" scroll-top='{{topNum}}' bindscroll="scrolltoupper">
+  <!-- 红包shadow -->
+  <view wx:if='{{active_id != 0}}' hidden='{{packetShow}}' class='newPeople-packet-shadow'>
+    <view wx:if='{{packetListshow}}' class='opend-packet-widget'>
+      <scroll-view scroll-y="true" class='opend-packetList'>
+        <view class="packetListItem {{index == 8 ? 'paddingB100' : ''}}" wx:for='{{packetList}}' wx:key='index'>
+          <view class='packetListItemUP flex'>
+            <view class='packetPrice'>
+              <text style='font-size:22rpx;'>￥</text>{{item.yh_price}}</view>
+            <view class='packetExplain'>
+              <view>{{item.title}}</view>
+              <view wx:if="{{item.countDD != 0}}" class='small'>有效期至{{item.use_e_date}}</view>
+              <view wx:else class='small'>{{item.countHH || '24'}}:{{item.countMM || '00'}}:{{item.countSS || '00'}} 后过期</view>
+            </view>
+          </view>
+          <image mode='widthFix' src='https://img.xiaonianyu.com/1564726429xn.png'></image>
+        </view>
+        <view class='mudele'>木得了...</view>
+      </scroll-view>
+      <image bindtap='closeOpendPacket' class='close-packet' mode='widthFix' src='https://img.xiaonianyu.com/1564726497cx.png'></image>
+      <image mode='widthFix' class='opend-packet' src='https://img.xiaonianyu.com/1564730213sr.png'></image>
+      <view class='opend-packed-down'>
+        <image mode='widthFix' src='https://img.xiaonianyu.com/1564728908ja.png'></image>
+        <view bindtap='closeOpendPacket' class='close-opend-packet'>
+          好的，收下了
+          <image mode='widthFix' src='https://img.xiaonianyu.com/1564726473ij.png'></image>
+        </view>
+      </view>
+    </view>
+    <view wx:else class='packet-widget'>
+      <view bindtap='closePacket' class='close-packet'></view>
+      <image mode='widthFix' class='packet' src='https://img.xiaonianyu.com/1564714100rn.png'></image>
+      <image mode='widthFix' bindtap='strongPacket' class='strong-packet' src='https://img.xiaonianyu.com/1565163953dw.gif'></image>
+    </view>
+  </view>
+  <!-- 红包提示 -->
+  <view hidden='{{!packetShow}}' wx:if='{{active_id != 0}}' class='packet-tip'>
+    <image mode='widthFix' bindtap='closeOpendPacket' class='temporaryChangeActiveId' src='https://img.xiaonianyu.com/1564804484ed.png'></image>
+    <image bindtap='OpendPacket' mode='widthFix' src='https://img.xiaonianyu.com/1564740348zi.png'></image>
+  </view>
+  <!-- banner -->
+  <view class="banner_widget">
+    <view class='active-go flex'>
+      <view class='go-next' bindtap='goIndex'> 返回首页 </view>
+      <view class='go-next' bindtap='goH5'> 小年鱼是什么 >> </view>
+    </view>
+    <image mode='widthFix' src='https://img.xiaonianyu.com/1564731553gh.png'></image>
+  </view>
+
+  <!-- 商品容器 -->
+  <view class='newGoods_wrap relative'>
+    <block wx:for="{{goodsList}}" wx:key="key">
+      <navigator class='goods_widget' url="/pages/goods/detail?id={{item.id}}">
+        <view class='goods_imgWidget'>
+          <image mode='widthFix' src="{{item.pic}}" />
+        </view>
+        <view class='goods_detail_widget'>
+          <view class='goods_title'>{{item.title}}</view>
+          <view class="limit_widget">
+            新人价
+            <text class='goods_price'>¥{{item.promotion_price}}</text>
+            <text class="span">¥{{item.markey_price}}</text>
+          </view>
+          <view class='progress_widget'>
+            <view class='progressBar'>
+              <view class='progressBar_shadow' style="width:{{item.sale_rate}}%;"></view>
+            </view>
+            <view class='progressTxt'>
+              已售
+              <text>{{item.sale_rate}}%</text>
+            </view>
+          </view>
+          <view class='goods_discount'>
+            {{item.rebate % 1 == 0 ? item.rebate + ".0" : item.rebate}}折抢购
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</scroll-view>

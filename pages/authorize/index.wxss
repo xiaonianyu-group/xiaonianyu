@@ -1,0 +1,51 @@
+page{
+  background-color:#fff;
+}
+.auth_logo {
+  margin: 0 auto;
+  margin-top:120rpx; 
+  width: 130rpx;
+  height: 130rpx;
+}
+.auth_logo image { width: 100%;}
+.auth_title {
+  margin: 0 auto;
+  width: 90%;
+  padding-bottom: 20rpx;
+  line-height: 120rpx;
+  text-align: center;
+  font-size: 40rpx;
+  border-bottom: 1px #f6f6f6 solid;
+}
+.auth_txt1 {
+  margin: 0 auto;
+  width: 90%;
+  padding-top: 20rpx;
+  line-height: 60rpx;
+  font-size: 32rpx;
+}
+.auth_txt2 {
+  margin: 0 auto;
+  width: 90%;
+  padding-bottom: 80rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #bbb;
+}
+.auth_btn_yes,.auth_btn_no {
+  float: left;
+  margin: 0 auto;
+  margin-left: 5%;
+  width: 42%;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #333;
+}
+.auth_btn_yes {
+  float: right;
+  margin-right: 5%;
+  background: #FFDB4C
+}

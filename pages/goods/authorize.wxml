@@ -1,0 +1,6 @@
+<!--pages/goods/authorize.wxml-->
+<import src="../../utils/wxParse/wxParse.wxml" />
+<view class='tip'>点击预览图片</view>
+<view class='imgList'>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>

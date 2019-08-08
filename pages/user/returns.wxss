@@ -1,0 +1,71 @@
+/* pages/user/returns.wxss */
+@import "/style/cells.wxss";
+.goods_pic {
+  margin-right: 20rpx;
+  float: left;
+  width: 160rpx;
+  height: 160rpx;
+}
+.goods_pic image {
+  width: 100%;
+}
+.goods_rctr {
+  float: left;
+  width: 522rpx;
+  height: 160rpx;
+}
+.goods_txt {
+  float: left;
+  width: 100%;
+  height: 80rpx;
+  padding: 16rpx 0;
+}
+.goods_title,.goods_spec {
+  float: left;
+  width: 100%;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.goods_spec {
+  font-size: 28rpx;
+  color: #888;
+}
+
+.cells_txt {
+  float: left;
+  width: 100%;
+  border-bottom: 2rpx #f2f2f2 solid;
+  padding-right: 24rpx;
+  font-size: 32rpx;
+  box-sizing: border-box;
+}
+/*选项*/
+.cell_ctr {
+  float: left;
+  width:100%;
+  line-height: 88rpx;
+}
+.m_textarea {
+  float: left;
+  width:100%;
+  height:144rpx;
+  line-height: 48rpx;
+}
+
+.border0 { border: 0;}
+.cell_left {
+  float: left;
+  width: 650rpx;
+}
+.cell_right {
+  float: right;
+  width: 50rpx;
+  text-align: right;
+}
+.cell_right i {
+  font-size: 36rpx;
+}
+@import "/style/style.wxss";

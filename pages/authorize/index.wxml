@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view class="container">
+    <view class='auth_logo'><image src="../../images/logo.jpg" mode='widthFix'/></view>
+    <view class='auth_title'>小年鱼品牌折扣商城</view>
+    <view class='auth_txt1'>该程序将获得以下授权：</view>
+    <view class='auth_txt2'>. 获得您的公开信息（昵称、头像等）</view>
+    <view>
+        <button class='auth_btn_no' bindtap="goBack">拒绝</button>
+        <button class='auth_btn_yes' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">允许</button>
+    </view>
+</view>
